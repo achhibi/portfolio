@@ -64,12 +64,12 @@ export default function Hero() {
           {/* Name & Title */}
           <motion.div
             variants={itemVariants}
-            className="space-y-2"
+            className="space-y-2 px-4"
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-white drop-shadow-lg">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white drop-shadow-lg">
               Amor Chhibi
             </h1>
-            <div className="text-2xl md:text-4xl font-bold">
+            <div className="text-xl sm:text-2xl md:text-4xl font-bold">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-violet-400">
                 Ingénieur Informatique Senior
               </span>
@@ -79,7 +79,7 @@ export default function Hero() {
           {/* Passion Badge */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center justify-center h-16"
+            className="flex items-center justify-center h-auto min-h-16 px-4"
           >
             <motion.div
               key={currentPassion}
@@ -87,17 +87,17 @@ export default function Hero() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.5 }}
-              className={`px-8 py-3 rounded-full bg-gradient-to-r ${passions[currentPassion].color} text-white font-semibold shadow-lg text-lg`}
+              className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full bg-gradient-to-r ${passions[currentPassion].color} text-white font-semibold shadow-lg text-base sm:text-lg md:text-xl flex items-center justify-center gap-2`}
             >
-              <span className="text-2xl mr-2">{passions[currentPassion].icon}</span>
-              {passions[currentPassion].label}
+              <span className="text-xl sm:text-2xl">{passions[currentPassion].icon}</span>
+              <span className="truncate">{passions[currentPassion].label}</span>
             </motion.div>
           </motion.div>
 
           {/* Description */}
           <motion.p
             variants={itemVariants}
-            className="text-gray-100 text-lg max-w-3xl mx-auto leading-relaxed drop-shadow-md font-medium"
+            className="text-gray-100 text-base sm:text-lg md:text-lg max-w-3xl mx-auto leading-relaxed drop-shadow-md font-medium px-4"
           >
             Avec 13+ ans d'expérience en développement Java/Spring Boot, Cloud et Microservices.
             <br/>
@@ -107,7 +107,7 @@ export default function Hero() {
           {/* Skills Grid */}
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-3xl mx-auto pt-8"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 md:gap-4 max-w-3xl mx-auto pt-6 sm:pt-8 px-4"
           >
             {[
               { icon: '☕', label: 'Java 21', color: 'orange' },
@@ -118,11 +118,11 @@ export default function Hero() {
             ].map((skill, index) => (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.1, y: -5 }}
-                className={`glass p-4 rounded-lg text-center space-y-2 hover:border-${skill.color}-500 transition-all duration-300`}
+                whileHover={{ scale: 1.05, y: -3 }}
+                className={`glass p-3 sm:p-4 rounded-lg text-center space-y-1 sm:space-y-2 hover:border-cyan-500 transition-all duration-300`}
               >
-                <div className="text-3xl">{skill.icon}</div>
-                <p className="text-sm font-semibold text-gray-200">{skill.label}</p>
+                <div className="text-2xl sm:text-3xl">{skill.icon}</div>
+                <p className="text-xs sm:text-sm font-semibold text-gray-200 line-clamp-2">{skill.label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -130,17 +130,17 @@ export default function Hero() {
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center pt-12"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-8 sm:pt-12 px-4 max-w-md sm:max-w-none mx-auto"
           >
             <a
               href="#about"
-              className="px-8 py-3 rounded-lg bg-cyan-400 text-slate-900 font-bold hover:bg-cyan-300 hover:shadow-xl hover:shadow-cyan-400/50 transition-all duration-300 transform hover:scale-105"
+              className="px-6 sm:px-8 py-3 rounded-lg bg-cyan-400 text-slate-900 font-bold hover:bg-cyan-300 hover:shadow-xl hover:shadow-cyan-400/50 transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base"
             >
               En savoir plus
             </a>
             <a
               href="#contact"
-              className="px-8 py-3 rounded-lg border-2 border-cyan-300 text-cyan-300 font-bold hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300 transform hover:scale-105"
+              className="px-6 sm:px-8 py-3 rounded-lg border-2 border-cyan-300 text-cyan-300 font-bold hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base"
             >
               Me contacter
             </a>

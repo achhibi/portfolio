@@ -20,13 +20,13 @@ export default function About() {
           </div>
 
           {/* Content */}
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="space-y-6 px-4 md:px-0"
             >
               <p className="text-lg text-gray-300 leading-relaxed">
                 Développeur senior Java/Spring Boot avec plus de 13 ans d'expérience dans la conception et le développement d'architectures complexes et scalables.
@@ -59,7 +59,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-6"
+              className="grid grid-cols-2 gap-3 md:gap-6 px-4 md:px-0"
             >
               {[
                 { number: '13+', label: 'Années\nd\'expérience', icon: '📅' },

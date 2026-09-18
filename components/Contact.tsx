@@ -27,7 +27,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-6 mb-12 max-w-2xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-12 max-w-2xl mx-auto px-4 md:px-0"
           >
             {[
               {

@@ -58,7 +58,7 @@ export default function Experience() {
           </div>
 
           {/* Timeline */}
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8 px-4 md:px-0">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
