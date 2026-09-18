@@ -11,33 +11,13 @@ const passions = [
   { label: 'Software Excellence', icon: '⚡', color: 'from-yellow-500 to-orange-500' },
 ]
 
-const craftsmanshipBadges = [
-  { label: 'Java & Spring Boot', icon: '☕' },
-  { label: 'Software Excellence', icon: '⚡' },
-  { label: 'AI & LLMs', icon: '🤖' },
-  { label: 'Cloud Architecture', icon: '☁️' },
-  { label: 'Microservices', icon: '🏗️' },
-  { label: 'Keycloak IAM', icon: '🔐' },
-  { label: 'Problem Solving', icon: '🎯' },
-  { label: 'Team Collaboration', icon: '🤝' },
-  { label: 'Open Source', icon: '🔓' },
-]
-
 export default function Hero() {
   const [currentPassion, setCurrentPassion] = useState(0)
-  const [currentBadge, setCurrentBadge] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentPassion((prev) => (prev + 1) % passions.length)
     }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentBadge((prev) => (prev + 1) % craftsmanshipBadges.length)
-    }, 2000)
     return () => clearInterval(interval)
   }, [])
 
@@ -64,17 +44,6 @@ export default function Hero() {
     },
   }
 
-  const spinVariants = {
-    spin: {
-      rotate: 360,
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        ease: 'linear',
-      },
-    },
-  }
-
   return (
     <section
       id="hero"
@@ -95,7 +64,7 @@ export default function Hero() {
           {/* Name & Title */}
           <motion.div
             variants={itemVariants}
-            className="space-y-4 px-4"
+            className="space-y-2 px-4"
           >
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white drop-shadow-lg">
               Amor Chhibi
@@ -105,36 +74,6 @@ export default function Hero() {
                 Ingénieur Informatique Senior
               </span>
             </div>
-
-            {/* Craftsmanship Badges Rotation */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="flex justify-center flex-wrap gap-2 pt-2"
-            >
-              {craftsmanshipBadges.map((badge, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{
-                    opacity: currentBadge === index ? 1 : 0.2,
-                    scale: currentBadge === index ? 1 : 0.9,
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="inline-block text-lg sm:text-xl px-3 py-1 rounded-full bg-gradient-to-r from-violet-500/20 to-cyan-500/20 border border-violet-400/50 text-violet-200 font-semibold text-sm sm:text-base whitespace-nowrap"
-                >
-                  <motion.span
-                    className="mr-1 inline-block"
-                    variants={spinVariants}
-                    animate="spin"
-                  >
-                    {badge.icon}
-                  </motion.span>
-                  {badge.label}
-                </motion.span>
-              ))}
-            </motion.div>
           </motion.div>
 
           {/* Passion Badge */}
