@@ -107,7 +107,7 @@ export default function Hero() {
           {/* Skills Grid */}
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 md:gap-4 max-w-3xl mx-auto pt-6 sm:pt-8 px-4"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4 max-w-3xl mx-auto pt-6 sm:pt-8 px-4"
           >
             {[
               { icon: '☕', label: 'Java 21', color: 'orange' },
@@ -115,6 +115,7 @@ export default function Hero() {
               { icon: '☁️', label: 'Cloud', color: 'cyan' },
               { icon: '🤖', label: 'AI/LLMs', color: 'purple' },
               { icon: '🏗️', label: 'Microservices', color: 'blue' },
+              { icon: '🔐', label: 'Keycloak', color: 'red' },
             ].map((skill, index) => (
               <motion.div
                 key={index}
