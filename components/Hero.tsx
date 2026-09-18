@@ -64,6 +64,17 @@ export default function Hero() {
     },
   }
 
+  const spinVariants = {
+    spin: {
+      rotate: 360,
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        ease: 'linear',
+      },
+    },
+  }
+
   return (
     <section
       id="hero"
@@ -113,7 +124,13 @@ export default function Hero() {
                   transition={{ duration: 0.5 }}
                   className="inline-block text-lg sm:text-xl px-3 py-1 rounded-full bg-gradient-to-r from-violet-500/20 to-cyan-500/20 border border-violet-400/50 text-violet-200 font-semibold text-sm sm:text-base whitespace-nowrap"
                 >
-                  <span className="mr-1">{badge.icon}</span>
+                  <motion.span
+                    className="mr-1 inline-block"
+                    variants={spinVariants}
+                    animate="spin"
+                  >
+                    {badge.icon}
+                  </motion.span>
                   {badge.label}
                 </motion.span>
               ))}
