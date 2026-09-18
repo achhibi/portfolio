@@ -48,22 +48,33 @@ export default function Contact() {
                 value: 'chhibi-amor',
                 link: 'https://stackoverflow.com/users/2867361/chhibi-amor',
               },
-            ].map((contact, index) => (
-              <motion.a
-                key={index}
-                href={contact.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                className="glass p-6 rounded-lg text-center space-y-3 hover:border-accent transition-all duration-300 group cursor-pointer"
-              >
-                <div className="text-4xl">{contact.icon}</div>
-                <h3 className="text-lg font-semibold text-accent group-hover:text-accent2 transition-colors">
-                  {contact.title}
-                </h3>
-                <p className="text-gray-400 text-sm">{contact.value}</p>
-              </motion.a>
-            ))}
+            ].map((contact, index) => {
+              // Validate URL to prevent open redirect
+              const isValidUrl = (url: string) => {
+                try {
+                  const parsed = new URL(url)
+                  return ['https:', 'http:'].includes(parsed.protocol)
+                } catch {
+                  return false
+                }
+              }
+              return (
+                <motion.a
+                  key={index}
+                  href={isValidUrl(contact.link) ? contact.link : '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  className="glass p-6 rounded-lg text-center space-y-3 hover:border-accent transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="text-4xl">{contact.icon}</div>
+                  <h3 className="text-lg font-semibold text-accent group-hover:text-accent2 transition-colors">
+                    {contact.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm">{contact.value}</p>
+                </motion.a>
+              )
+            })}
           </motion.div>
 
 
