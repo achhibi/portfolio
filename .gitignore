@@ -35,6 +35,12 @@ Thumbs.db
 # Documentation & Config
 CLAUDE.md
 CLAUDE.*.md
+DEPLOYMENT_GUIDE.md
+GETTING_STARTED.md
+
+# Claude Code
+.claude/
+.claude/**
 
 # CV & Personal Files
 *.pdf
