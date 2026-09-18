@@ -116,7 +116,9 @@ export default function Hero() {
               { icon: '🤖', label: 'AI/LLMs', color: 'purple' },
               { icon: '🏗️', label: 'Microservices', color: 'blue' },
               { icon: '🔐', label: 'Keycloak', color: 'red' },
-              { icon: '♟️', label: 'Chess Player', color: 'yellow' },
+              { icon: '🎯', label: 'Problem Solving', color: 'yellow' },
+              { icon: '🤝', label: 'Team Collaboration', color: 'pink' },
+              { icon: '♟️', label: 'Chess Player', color: 'gray' },
             ].map((skill, index) => (
               <motion.div
                 key={index}
