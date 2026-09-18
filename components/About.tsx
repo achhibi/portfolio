@@ -35,7 +35,7 @@ export default function About() {
                 Passionné par les architectures microservices, le cloud computing, l'IA et les LLMs. Je suis un fervent défenseur du clean code, des principes SOLID et des meilleures pratiques de développement.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Actuellement Technical Leader à Groupe AGRICA, je dirige et accompagne les équipes dans la transformation numérique et la modernisation des applications d'entreprise.
+                Actuellement développeur senior au sein du Groupe AGRICA, je travaille notamment sur des sujets liés à la gestion des identités et des accès (IAM), avec une expertise autour de Keycloak, ainsi que sur la modernisation et l'évolution des applications d'entreprise.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
                 En dehors du domaine informatique, les échecs constituent un loisir apprécié, notamment pour leur dimension stratégique et leur réflexion logique.
