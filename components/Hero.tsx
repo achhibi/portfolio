@@ -3,20 +3,20 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
-const roles = [
-  'Senior Java Developer',
-  'Technical Leader',
-  'Cloud Architect',
-  'Spring Boot Expert',
-  'Microservices Specialist',
+const passions = [
+  { label: 'Java & Spring Boot', icon: '☕', color: 'from-orange-500 to-red-500' },
+  { label: 'AI & LLMs', icon: '🤖', color: 'from-purple-500 to-pink-500' },
+  { label: 'Cloud Architecture', icon: '☁️', color: 'from-cyan-500 to-blue-500' },
+  { label: 'Microservices', icon: '🏗️', color: 'from-green-500 to-emerald-500' },
+  { label: 'Software Excellence', icon: '⚡', color: 'from-yellow-500 to-orange-500' },
 ]
 
 export default function Hero() {
-  const [currentRole, setCurrentRole] = useState(0)
+  const [currentPassion, setCurrentPassion] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length)
+      setCurrentPassion((prev) => (prev + 1) % passions.length)
     }, 3000)
     return () => clearInterval(interval)
   }, [])
@@ -58,47 +58,80 @@ export default function Hero() {
         >
           {/* Greeting */}
           <motion.div variants={itemVariants}>
-            <p className="text-accent text-lg font-semibold">Bienvenue sur mon portfolio</p>
+            <p className="text-accent text-lg font-semibold">Bienvenue</p>
           </motion.div>
 
-          {/* Name */}
-          <motion.h1
+          {/* Name & Title */}
+          <motion.div
             variants={itemVariants}
-            className="text-5xl md:text-7xl font-bold space-y-4"
+            className="space-y-2"
           >
-            <span className="block text-white drop-shadow-lg">Amor Chhibi</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-cyan-200 to-violet-400 font-extrabold drop-shadow-lg">
-              Technical Leader
-            </span>
-          </motion.h1>
+            <h1 className="text-5xl md:text-7xl font-bold text-white drop-shadow-lg">
+              Amor Chhibi
+            </h1>
+            <div className="text-2xl md:text-4xl font-bold">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-violet-400">
+                Ingénieur Informatique Senior
+              </span>
+            </div>
+          </motion.div>
 
-          {/* Dynamic Role */}
-          <motion.div variants={itemVariants} className="h-8">
-            <motion.p
-              key={currentRole}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+          {/* Passion Badge */}
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center justify-center gap-4 h-16"
+          >
+            <span className="text-gray-400 text-lg">Passionné par :</span>
+            <motion.div
+              key={currentPassion}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.5 }}
-              className="text-xl md:text-2xl text-gray-100 font-semibold drop-shadow-md"
+              className={`px-6 py-3 rounded-full bg-gradient-to-r ${passions[currentPassion].color} text-white font-semibold shadow-lg`}
             >
-              {roles[currentRole]}
-            </motion.p>
+              <span className="text-2xl mr-2">{passions[currentPassion].icon}</span>
+              {passions[currentPassion].label}
+            </motion.div>
           </motion.div>
 
           {/* Description */}
           <motion.p
             variants={itemVariants}
-            className="text-gray-100 text-lg max-w-2xl mx-auto leading-relaxed drop-shadow-md font-medium"
+            className="text-gray-100 text-lg max-w-3xl mx-auto leading-relaxed drop-shadow-md font-medium"
           >
-            Spécialiste en architectures cloud natives, microservices et transformations numériques.
-            Passionné par l'IA, les LLMs, les nouvelles technologies, l'open source et l'excellence du code.
+            Avec 13+ ans d'expérience en développement Java/Spring Boot, Cloud et Microservices.
+            <br/>
+            <span className="text-cyan-300">Passionné par l'IA et les LLMs</span>, l'innovation technologique et l'excellence du code.
           </motion.p>
+
+          {/* Skills Grid */}
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-3xl mx-auto pt-8"
+          >
+            {[
+              { icon: '☕', label: 'Java 21', color: 'orange' },
+              { icon: '🍃', label: 'Spring Boot', color: 'green' },
+              { icon: '☁️', label: 'Cloud', color: 'cyan' },
+              { icon: '🤖', label: 'AI/LLMs', color: 'purple' },
+              { icon: '🏗️', label: 'Microservices', color: 'blue' },
+            ].map((skill, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.1, y: -5 }}
+                className={`glass p-4 rounded-lg text-center space-y-2 hover:border-${skill.color}-500 transition-all duration-300`}
+              >
+                <div className="text-3xl">{skill.icon}</div>
+                <p className="text-sm font-semibold text-gray-200">{skill.label}</p>
+              </motion.div>
+            ))}
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center pt-8"
+            className="flex flex-col sm:flex-row gap-4 justify-center pt-12"
           >
             <a
               href="#about"
