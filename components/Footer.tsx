@@ -41,6 +41,7 @@ export default function Footer() {
                   { name: 'Compétences', href: '#skills' },
                   { name: 'Expérience', href: '#experience' },
                   { name: 'Projets', href: '#projects' },
+                  { name: 'Privacy & Security', href: '/privacy' },
                 ].map((link) => (
                   <li key={link.name}>
                     <a
