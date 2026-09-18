@@ -110,7 +110,7 @@ export default function Hero() {
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4 max-w-3xl mx-auto pt-6 sm:pt-8 px-4"
           >
             {[
-              { icon: '☕', label: 'Java 21', color: 'orange' },
+              { icon: '☕', label: 'Java', color: 'orange' },
               { icon: '🍃', label: 'Spring Boot', color: 'green' },
               { icon: '☁️', label: 'Cloud', color: 'cyan' },
               { icon: '🤖', label: 'AI/LLMs', color: 'purple' },
@@ -118,7 +118,7 @@ export default function Hero() {
               { icon: '🔐', label: 'Keycloak', color: 'red' },
               { icon: '🎯', label: 'Problem Solving', color: 'yellow' },
               { icon: '🤝', label: 'Team Collaboration', color: 'pink' },
-              { icon: '♟️', label: 'Chess Player', color: 'gray' },
+              { icon: '🔓', label: 'Open Source Lover', color: 'green' },
             ].map((skill, index) => (
               <motion.div
                 key={index}
