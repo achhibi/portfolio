@@ -15,6 +15,12 @@ const craftsmanshipBadges = [
   { label: 'Java & Spring Boot', icon: '☕' },
   { label: 'Software Excellence', icon: '⚡' },
   { label: 'AI & LLMs', icon: '🤖' },
+  { label: 'Cloud Architecture', icon: '☁️' },
+  { label: 'Microservices', icon: '🏗️' },
+  { label: 'Keycloak IAM', icon: '🔐' },
+  { label: 'Problem Solving', icon: '🎯' },
+  { label: 'Team Collaboration', icon: '🤝' },
+  { label: 'Open Source', icon: '🔓' },
 ]
 
 export default function Hero() {
