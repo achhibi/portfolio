@@ -66,6 +66,8 @@ export default function About() {
                 { number: '50+', label: 'Projets\nGitHub', icon: '🗂️' },
                 { number: '5+', label: 'Certifications\ntechniques', icon: '🏆' },
                 { number: '100%', label: 'Dédication\nau code', icon: '💯' },
+                { number: '2+', label: 'Langues\nMaîtrisées', icon: '🌍' },
+                { number: '3+', label: 'Core\nFrameworks', icon: '🔧' },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
