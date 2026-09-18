@@ -37,6 +37,9 @@ export default function About() {
               <p className="text-lg text-gray-300 leading-relaxed">
                 Actuellement Technical Leader à Groupe AGRICA, je dirige et accompagne les équipes dans la transformation numérique et la modernisation des applications d'entreprise.
               </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                En dehors du domaine informatique, les échecs constituent un loisir apprécié, notamment pour leur dimension stratégique et leur réflexion logique.
+              </p>
               <div className="pt-4 space-y-3">
                 <p className="text-gray-400">
                   <strong className="text-accent">Localisation:</strong> France (Île-de-France)
