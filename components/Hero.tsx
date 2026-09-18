@@ -12,12 +12,9 @@ const passions = [
 ]
 
 const craftsmanshipBadges = [
-  { label: 'Craftsmanship', icon: '📜' },
-  { label: 'API Design', icon: '📝' },
-  { label: 'Code Review', icon: '🔍' },
-  { label: 'Refactoring', icon: '🛠️' },
-  { label: 'Agility', icon: '📈' },
-  { label: 'Continuous Learning', icon: '📚' },
+  { label: 'Java & Spring Boot', icon: '☕' },
+  { label: 'Software Excellence', icon: '⚡' },
+  { label: 'AI & LLMs', icon: '🤖' },
 ]
 
 export default function Hero() {
