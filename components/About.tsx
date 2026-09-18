@@ -39,7 +39,7 @@ export default function About() {
               </p>
               <div className="pt-4 space-y-3">
                 <p className="text-gray-400">
-                  <strong className="text-accent">Localisation:</strong> Villejuif, Île-de-France
+                  <strong className="text-accent">Localisation:</strong> Île-de-France
                 </p>
                 <p className="text-gray-400">
                   <strong className="text-accent">Expérience:</strong> 13+ ans

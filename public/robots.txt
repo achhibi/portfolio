@@ -1,0 +1,11 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+Disallow: /.next/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://amorchhibi.dev/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
