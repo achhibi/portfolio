@@ -79,16 +79,15 @@ export default function Hero() {
           {/* Passion Badge */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center justify-center gap-4 h-16"
+            className="flex items-center justify-center h-16"
           >
-            <span className="text-gray-400 text-lg">Passionné par :</span>
             <motion.div
               key={currentPassion}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.5 }}
-              className={`px-6 py-3 rounded-full bg-gradient-to-r ${passions[currentPassion].color} text-white font-semibold shadow-lg`}
+              className={`px-8 py-3 rounded-full bg-gradient-to-r ${passions[currentPassion].color} text-white font-semibold shadow-lg text-lg`}
             >
               <span className="text-2xl mr-2">{passions[currentPassion].icon}</span>
               {passions[currentPassion].label}
