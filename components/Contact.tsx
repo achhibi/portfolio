@@ -1,8 +1,49 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 export default function Contact() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [statusMessage, setStatusMessage] = useState('')
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('loading')
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Nouveau message de ${formData.name}`,
+        }),
+      })
+
+      const data = await response.json()
+      if (data.success) {
+        setStatus('success')
+        setStatusMessage('Message envoyé avec succès! Je vous répondrai bientôt.')
+        setFormData({ name: '', email: '', message: '' })
+      } else {
+        setStatus('error')
+        setStatusMessage('Erreur lors de l\'envoi. Veuillez réessayer.')
+      }
+    } catch (error) {
+      setStatus('error')
+      setStatusMessage('Erreur de connexion. Veuillez réessayer.')
+    }
+  }
 
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-surface">
@@ -77,6 +118,92 @@ export default function Contact() {
             })}
           </motion.div>
 
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="glass p-8 rounded-lg max-w-2xl mx-auto"
+          >
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name */}
+              <div>
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-300 mb-2">
+                  Nom *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="Votre nom"
+                  className="w-full bg-slate-800/50 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="votre.email@example.com"
+                  className="w-full bg-slate-800/50 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
+                />
+              </div>
+
+              {/* Message */}
+              <div>
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-300 mb-2">
+                  Message *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  placeholder="Votre message..."
+                  rows={5}
+                  className="w-full bg-slate-800/50 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors resize-none"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className="w-full bg-gradient-to-r from-accent to-accent2 text-slate-900 font-bold py-3 rounded-lg hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {status === 'loading' ? 'Envoi...' : 'Envoyer le message'}
+              </button>
+
+              {/* Status Messages */}
+              {statusMessage && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`p-4 rounded-lg text-sm font-semibold ${
+                    status === 'success'
+                      ? 'bg-green-500/20 border border-green-500/50 text-green-300'
+                      : 'bg-red-500/20 border border-red-500/50 text-red-300'
+                  }`}
+                >
+                  {statusMessage}
+                </motion.div>
+              )}
+            </form>
+          </motion.div>
 
           {/* Additional Info */}
           <motion.div
