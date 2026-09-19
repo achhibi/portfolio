@@ -110,9 +110,10 @@ Tous les contentsont dans les composants individuels. Modifiez directement les f
 - Ajouter de nouveaux projets
 
 ### Informations Personnelles
-- Email: `amor.chhibi@hotmail.fr`
+Pour me contacter, utilisez:
 - GitHub: `https://github.com/achhibi`
 - LinkedIn: `https://www.linkedin.com/in/chhibiamor/`
+- Portfolio: Formulaire de contact sur le site
 
 ## 📤 Déploiement
 
@@ -174,10 +175,10 @@ MIT License - Libre d'utilisation
 
 ## 📞 Contact
 
-Pour toute question ou suggestion, contactez:
-- Email: amor.chhibi@hotmail.fr
+Pour toute question ou suggestion, visitez le portfolio:
 - LinkedIn: https://www.linkedin.com/in/chhibiamor/
 - GitHub: https://github.com/achhibi
+- Portfolio: https://portfolio-achhibi.vercel.app/
 
 ## 🎯 Roadmap
 
