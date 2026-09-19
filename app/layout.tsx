@@ -39,10 +39,11 @@ export const metadata: Metadata = {
     description: 'Expert in Java, Spring Boot, Cloud Architecture, Microservices, and AI with 13+ years of experience',
     images: [
       {
-        url: '/og-image.png',
+        url: 'https://amorchhibi.dev/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'Amor Chhibi - Senior Developer',
+        type: 'image/png',
       },
     ],
   },

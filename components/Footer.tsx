@@ -41,12 +41,22 @@ export default function Footer() {
                   { name: 'Compétences', href: '#skills' },
                   { name: 'Expérience', href: '#experience' },
                   { name: 'Projets', href: '#projects' },
+                  { name: 'Open Source', href: '#opensource' },
                   { name: 'Privacy & Security', href: '/privacy' },
                 ].map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
                       className="text-gray-400 hover:text-accent transition-colors duration-300"
+                      onClick={(e) => {
+                        if (link.href.startsWith('#')) {
+                          e.preventDefault()
+                          const element = document.querySelector(link.href)
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' })
+                          }
+                        }
+                      }}
                     >
                       {link.name}
                     </a>
