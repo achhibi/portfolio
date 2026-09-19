@@ -72,7 +72,7 @@ export default function OpenSourceContributions() {
           viewport={{ once: true }}
           className="text-center mb-16 space-y-4"
         >
-          <h2 className="text-4xl md:text-5xl font-bold">🔓 Open Source Contributions</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">Open Source Contributions</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-accent to-accent2 mx-auto rounded-full" />
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Contributions reconnues par la communauté open source mondiale.
