@@ -77,7 +77,7 @@ export default function OpenSourceContributions() {
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Contributions reconnues par la communauté open source mondiale.
             <br />
-            Passionné par les solutions enterprise et l'innovation partagée.
+            Passionné par les solutions enterprise et l&apos;innovation partagée.
           </p>
         </motion.div>
 

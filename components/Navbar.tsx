@@ -10,11 +10,6 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('hero')
   const pathname = usePathname()
 
-  // Hide navbar on privacy page
-  if (pathname === '/privacy') {
-    return null
-  }
-
   // Detect active section on scroll
   useEffect(() => {
     const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'opensource', 'contact']
@@ -37,6 +32,11 @@ export default function Navbar() {
 
     return () => observer.disconnect()
   }, [])
+
+  // Hide navbar on privacy page
+  if (pathname === '/privacy') {
+    return null
+  }
 
   const navItems = [
     { name: 'Accueil', href: '#hero' },
