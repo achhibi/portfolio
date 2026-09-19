@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   keywords: 'Java, Spring Boot, Cloud, AWS, GCP, Microservices, Technical Leader, AI, LLMs, Claude AI, Backend Development, Enterprise Architecture',
   authors: [{ name: 'Amor Chhibi', url: 'https://github.com/achhibi' }],
   creator: 'Amor Chhibi',
-  metadataBase: new URL('https://amorchhibi.dev'),
+  metadataBase: new URL('https://portfolio-achhibi.vercel.app'),
   icons: {
     icon: '/favicon.svg',
     apple: '/favicon.svg',
@@ -33,13 +33,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://amorchhibi.dev',
+    url: 'https://portfolio-achhibi.vercel.app',
     siteName: 'Amor Chhibi Portfolio',
     title: 'Amor Chhibi - Senior Java/Spring Developer & Technical Leader',
     description: 'Expert in Java, Spring Boot, Cloud Architecture, Microservices, and AI with 13+ years of experience',
     images: [
       {
-        url: 'https://amorchhibi.dev/opengraph-image',
+        url: 'https://portfolio-achhibi.vercel.app/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'Amor Chhibi - Senior Developer',
