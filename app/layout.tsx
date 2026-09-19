@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     apple: '/favicon.svg',
   },
   alternates: {
-    canonical: 'https://amorchhibi.dev',
+    canonical: 'https://portfolio-achhibi.vercel.app',
   },
   robots: {
     index: true,
@@ -66,7 +66,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://amorchhibi.dev" />
+        <link rel="canonical" href="https://portfolio-achhibi.vercel.app" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0F172A" />
         <StructuredData />
