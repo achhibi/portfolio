@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   authors: [{ name: 'Amor Chhibi', url: 'https://github.com/achhibi' }],
   creator: 'Amor Chhibi',
   metadataBase: new URL('https://amorchhibi.dev'),
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   alternates: {
     canonical: 'https://amorchhibi.dev',
   },
