@@ -39,14 +39,16 @@ portfolio/
 │   ├── Skills.tsx            # 6 skill categories
 │   ├── Experience.tsx        # Career timeline
 │   ├── Projects.tsx          # GitHub projects
-│   ├── Contact.tsx           # Contact links
-│   ├── Navbar.tsx            # Navigation
+│   ├── OpenSourceContributions.tsx # 4 major open source projects
+│   ├── Contact.tsx           # Web3Forms contact form
+│   ├── Navbar.tsx            # Navigation with active state detection
 │   ├── Footer.tsx            # Footer with links
 │   └── StructuredData.tsx    # JSON-LD schemas
 ├── public/
 │   ├── sitemap.xml           # SEO sitemap
 │   ├── robots.txt            # Search engine rules
 │   ├── manifest.json         # PWA manifest
+│   ├── favicon.svg           # AC favicon with gradient
 │   └── googled320f6061af8e227.html  # Google verification
 ├── package.json              # Dependencies
 ├── tsconfig.json             # TypeScript config
@@ -60,8 +62,10 @@ portfolio/
 ├── README.md                 # User documentation
 ├── CLAUDE.md                 # This file
 ├── SECURITY.md               # Security policy
-├── SECURITY_AUDIT.md         # Advanced audit (95/100)
+├── SECURITY_AUDIT.md         # Detailed security audit
+├── SECURITY_AUDIT_2026.md    # Complete audit (98/100)
 ├── SEO_OPTIMIZATION.md       # Complete SEO guide
+├── CONTACT_SETUP.md          # Web3Forms setup guide
 └── ADVANCED_SECURITY_AUDIT.md # Comprehensive audit
 
 ```
@@ -100,8 +104,17 @@ portfolio/
 - **Skills:** 6 categories + 5 certifications
 - **Experience:** 5 positions + education timeline
 - **Projects:** 6 featured GitHub projects
-- **Contact:** LinkedIn, GitHub, Stack Overflow links
-- **Privacy:** GDPR-compliant policy page
+- **Open Source Contributions:** 4 major projects (Zalando, Spring, Keycloak, custom)
+- **Contact:** Web3Forms-integrated contact form + social links
+- **Privacy:** GDPR-compliant policy page with sticky back button
+
+### Recent Enhancements (Sep 2026)
+- ✨ **Open Source Section** - Showcase contributions to Zalando, Spring, Keycloak
+- 📧 **Contact Form** - Web3Forms integration for secure messaging
+- 🎯 **Active Navigation** - Intersection Observer detects current section on scroll
+- 🔒 **Favicon** - Custom "AC" SVG with cyan-purple gradient
+- 🌐 **Enhanced Navbar** - Auto-hide on privacy page, active state highlighting
+- 🔐 **Security Audit** - Complete audit (98/100 score)
 
 ## Development Commands
 
@@ -137,12 +150,23 @@ npm run type-check   # TypeScript verification
 
 **Why:** Animations need client-side execution. No backend logic means this is fine.
 
-### No Backend
-- Portfolio is 100% static (no API routes, no database)
-- All data hardcoded in components
-- Contact form uses mailto: links (no server processing)
+### Contact Form & Web3Forms
+- Contact form integrated with Web3Forms (Cloudflare-protected service)
+- Secure email delivery without backend
+- No data stored in application
+- Client-side submission (no server overhead)
+- Environment variable: `NEXT_PUBLIC_WEB3FORMS_KEY`
 
 **Why:** Reduces attack surface, simplifies deployment, zero infrastructure costs, fastest performance.
+
+### Navigation with Active State
+- Intersection Observer API detects visible sections
+- Active nav link highlighted on scroll
+- Desktop: bottom border; Mobile: left border
+- Navbar auto-hides on /privacy page
+- Smooth scroll animation for anchor links
+
+**Why:** Better UX, visual feedback, professional navigation experience.
 
 ### Responsive Grid Strategy
 - Mobile: `grid-cols-2` (2 columns)
@@ -166,10 +190,23 @@ npm run type-check   # TypeScript verification
 - ✅ URL validation (Contact component)
 - ✅ No hardcoded secrets
 
+### Security Audit Results (Sep 2026)
+**Score: 98/100** - Highly Secure ✅
+
+- ✅ Zero secrets in git history
+- ✅ No PII exposure (email protected)
+- ✅ All security headers configured
+- ✅ Dependencies: 0 vulnerabilities
+- ✅ TypeScript strict mode
+- ✅ No XSS/SQL injection risks
+- ✅ GDPR/CCPA compliant
+- ✅ Vercel DDoS/WAF protection
+
 ### Security Files
 - `SECURITY.md` - Public security policy
-- `SECURITY_AUDIT.md` - Detailed audit (445 lines)
-- `ADVANCED_SECURITY_AUDIT.md` - Advanced audit (95/100 rating)
+- `SECURITY_AUDIT.md` - Initial audit (445 lines)
+- `SECURITY_AUDIT_2026.md` - Complete audit (98/100, 283 lines)
+- `ADVANCED_SECURITY_AUDIT.md` - Advanced analysis
 - `.well-known/security.txt` - Security contact info
 
 ## SEO Optimization
@@ -408,8 +445,19 @@ npm start  # Test production build
    - Commit with clear message
    - Push to main (auto-deploys via Vercel)
 
+## Recent Updates (September 19, 2026)
+
+- ✨ Added Open Source Contributions section (4 major projects)
+- 📧 Integrated Web3Forms contact form
+- 🎯 Implemented Intersection Observer for active navigation
+- 🔒 Added custom "AC" favicon with gradient
+- 🌐 Enhanced Navbar with auto-hide on privacy page
+- 🔐 Completed comprehensive security audit (98/100)
+- 📝 Updated all documentation
+
 ---
 
-**Last Updated:** September 18, 2026
-**Status:** ✅ Production-ready, fully optimized, secure, SEO-friendly
+**Last Updated:** September 19, 2026
+**Status:** ✅ Production-ready, fully optimized, secure (98/100), SEO-friendly
+**Security Score:** 98/100
 **Maintained by:** Amor Chhibi + Claude Code
