@@ -69,6 +69,12 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0F172A" />
         <StructuredData />
+        <script dangerouslySetInnerHTML={{__html: `
+          try {
+            const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (theme === 'light') document.documentElement.classList.add('light');
+          } catch (e) {}
+        `}} />
       </head>
       <body className="bg-primary text-gray-100">
         <Navbar />

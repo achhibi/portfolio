@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
+import { useTheme } from '@/hooks/useTheme'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
   const pathname = usePathname()
+  const { theme, toggleTheme, mounted } = useTheme()
 
   // Detect active section on scroll
   useEffect(() => {
@@ -92,15 +94,37 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* CTA Button */}
-          <a
-            href="https://github.com/achhibi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-block px-6 py-2 rounded-lg bg-cyan-400 text-slate-900 font-semibold hover:bg-cyan-300 transition-colors duration-300"
-          >
-            GitHub
-          </a>
+          {/* Theme Toggle & GitHub Button */}
+          <div className="hidden md:flex gap-4 items-center">
+            {/* Theme Toggle */}
+            {mounted && (
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors duration-300"
+                title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              >
+                {theme === 'dark' ? (
+                  <svg className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5 text-slate-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </svg>
+                )}
+              </button>
+            )}
+
+            {/* GitHub Button */}
+            <a
+              href="https://github.com/achhibi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 rounded-lg bg-cyan-400 text-slate-900 font-semibold hover:bg-cyan-300 transition-colors duration-300"
+            >
+              GitHub
+            </a>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
