@@ -1,6 +1,6 @@
 Contact: https://github.com/achhibi
 Preferred-Languages: en, fr
-Canonical: https://amorchhibi.dev/.well-known/security.txt
-Policy: https://amorchhibi.dev/security
+Canonical: https://portfolio-achhibi.vercel.app/.well-known/security.txt
+Policy: https://portfolio-achhibi.vercel.app/SECURITY.md
 Acknowledgments: https://github.com/achhibi/portfolio/security/advisories
 Expires: 2027-09-18T00:00:00.000Z
