@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function Privacy() {
   return (
@@ -12,6 +13,16 @@ export default function Privacy() {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
+          {/* Back Button - Sticky */}
+          <div className="sticky top-20 z-40 mb-4">
+            <Link href="/" className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 rounded-lg bg-slate-800/95 hover:bg-slate-700 backdrop-blur-sm transition-colors duration-300 group border border-slate-700/50 hover:border-accent/50">
+              <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              <span className="text-xs sm:text-sm font-semibold text-gray-200">Retour</span>
+            </Link>
+          </div>
+
           <div className="text-center space-y-4 mb-12">
             <h1 className="text-4xl md:text-5xl font-bold">Privacy & Security</h1>
             <p className="text-gray-400">Last updated: September 18, 2026</p>
