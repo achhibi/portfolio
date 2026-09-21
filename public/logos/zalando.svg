@@ -1,0 +1,8 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <!-- Zalando Official Z Logo -->
+  <rect width="256" height="256" fill="none"/>
+  <g transform="translate(40, 30)">
+    <path d="M 10 10 L 170 10 L 10 90 L 170 90 L 10 170 L 170 170"
+          stroke="currentColor" fill="none" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

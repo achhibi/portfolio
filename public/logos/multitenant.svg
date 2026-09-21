@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <style>
+      .keycloak-light { fill: #00b8e3; }
+      .keycloak-dark { fill: #008aaa; }
+      .arrow-line { stroke: #00b8e3; stroke-width: 2.5; fill: none; stroke-linecap: round; }
+      .arrow-head { fill: #00b8e3; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" class="arrow-head"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="256" height="256" fill="none"/>
+
+  <!-- Center Keycloak Key Logo (simplified) -->
+  <g transform="translate(128, 128)">
+    <!-- Key head (circle) -->
+    <circle cx="0" cy="0" r="20" fill="none" stroke="currentColor" stroke-width="3"/>
+
+    <!-- Key shaft -->
+    <rect x="18" y="-7" width="35" height="14" rx="7" fill="currentColor"/>
+
+    <!-- Key teeth -->
+    <rect x="50" y="0" width="6" height="8" fill="currentColor"/>
+    <rect x="50" y="-10" width="6" height="8" fill="currentColor"/>
+  </g>
+
+  <!-- Arrow indicators pointing outward -->
+  <!-- Top arrow -->
+  <g>
+    <line x1="128" y1="20" x2="128" y2="50" class="arrow-line" marker-end="url(#arrowhead)"/>
+    <circle cx="128" cy="10" r="3" fill="#00b8e3"/>
+  </g>
+
+  <!-- Bottom arrow -->
+  <g>
+    <line x1="128" y1="206" x2="128" y2="236" class="arrow-line" marker-end="url(#arrowhead)"/>
+    <circle cx="128" cy="246" r="3" fill="#00b8e3"/>
+  </g>
+
+  <!-- Left arrow -->
+  <g>
+    <line x1="20" y1="128" x2="50" y2="128" class="arrow-line" marker-end="url(#arrowhead)"/>
+    <circle cx="10" cy="128" r="3" fill="#00b8e3"/>
+  </g>
+
+  <!-- Right arrow -->
+  <g>
+    <line x1="206" y1="128" x2="236" y2="128" class="arrow-line" marker-end="url(#arrowhead)"/>
+    <circle cx="246" cy="128" r="3" fill="#00b8e3"/>
+  </g>
+
+  <!-- Diagonal arrows for more connectivity -->
+  <!-- Top-right -->
+  <g opacity="0.6">
+    <line x1="165" y1="65" x2="195" y2="95" class="arrow-line" marker-end="url(#arrowhead)"/>
+  </g>
+
+  <!-- Bottom-left -->
+  <g opacity="0.6">
+    <line x1="91" y1="191" x2="61" y2="161" class="arrow-line" marker-end="url(#arrowhead)"/>
+  </g>
+</svg>

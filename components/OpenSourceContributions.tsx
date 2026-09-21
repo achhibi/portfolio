@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function OpenSourceContributions() {
   const contributions = [
@@ -8,7 +9,7 @@ export default function OpenSourceContributions() {
       name: 'Zalando Logbook',
       description: 'An extensible Java library for HTTP request and response logging',
       stars: '2.1k',
-      icon: '📚',
+      logo: '/logos/zalando.png',
       color: 'from-orange-500 to-red-500',
       link: 'https://github.com/zalando/logbook',
       tags: ['Java', 'Logging', 'HTTP'],
@@ -17,7 +18,7 @@ export default function OpenSourceContributions() {
       name: 'Spring Framework',
       description: 'Core Spring Framework contributions and improvements',
       stars: '50k+',
-      icon: '🍃',
+      logo: '/logos/spring.svg',
       color: 'from-green-500 to-emerald-500',
       link: 'https://github.com/spring-projects/spring-framework',
       tags: ['Java', 'Spring', 'Framework'],
@@ -26,7 +27,7 @@ export default function OpenSourceContributions() {
       name: 'Keycloak',
       description: 'Open Source Identity and Access Management solution',
       stars: '20k+',
-      icon: '🔐',
+      logo: '/logos/keycloak.svg',
       color: 'from-red-500 to-pink-500',
       link: 'https://github.com/keycloak/keycloak',
       tags: ['OAuth2', 'OIDC', 'IAM'],
@@ -35,7 +36,7 @@ export default function OpenSourceContributions() {
       name: 'Keycloak Multitenant',
       description: 'Spring Security integration for Keycloak with multitenant support',
       stars: 'Custom',
-      icon: '🔓',
+      logo: '/logos/multitenant.svg',
       color: 'from-violet-500 to-purple-500',
       link: 'https://github.com/achhibi/keycloak-multitenant-spring-security',
       tags: ['Keycloak', 'Spring Security', 'Multitenant'],
@@ -102,7 +103,15 @@ export default function OpenSourceContributions() {
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-4xl">{project.icon}</span>
+                      <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-br from-slate-700 to-slate-800">
+                        <Image
+                          src={project.logo}
+                          alt={project.name}
+                          width={48}
+                          height={48}
+                          className="w-10 h-10 object-contain filter brightness-110"
+                        />
+                      </div>
                       <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-colors">
                         {project.name}
                       </h3>

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 const passions = [
   { label: 'Java & Spring Boot', icon: '☕', color: 'from-orange-500 to-red-500' },
@@ -110,22 +111,34 @@ export default function Hero() {
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4 max-w-3xl mx-auto pt-6 sm:pt-8 px-4"
           >
             {[
-              { icon: '☕', label: 'Java', color: 'orange' },
-              { icon: '🍃', label: 'Spring Boot', color: 'green' },
-              { icon: '☁️', label: 'Cloud', color: 'cyan' },
-              { icon: '🤖', label: 'AI/LLMs', color: 'purple' },
-              { icon: '🏗️', label: 'Microservices', color: 'blue' },
-              { icon: '🔐', label: 'Keycloak', color: 'red' },
-              { icon: '🎯', label: 'Problem Solving', color: 'yellow' },
-              { icon: '🤝', label: 'Team Collaboration', color: 'pink' },
-              { icon: '🔓', label: 'Open Source Lover', color: 'green' },
+              { icon: '☕', label: 'Java', color: 'orange', type: 'emoji' },
+              { icon: '/logos/spring.svg', label: 'Spring Boot', color: 'green', type: 'logo' },
+              { icon: '☁️', label: 'Cloud', color: 'cyan', type: 'emoji' },
+              { icon: '🤖', label: 'AI/LLMs', color: 'purple', type: 'emoji' },
+              { icon: '🏗️', label: 'Microservices', color: 'blue', type: 'emoji' },
+              { icon: '/logos/keycloak.svg', label: 'Keycloak', color: 'red', type: 'logo' },
+              { icon: '🎯', label: 'Problem Solving', color: 'yellow', type: 'emoji' },
+              { icon: '🤝', label: 'Team Collaboration', color: 'pink', type: 'emoji' },
+              { icon: '🔓', label: 'Open Source Lover', color: 'green', type: 'emoji' },
             ].map((skill, index) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.05, y: -3 }}
                 className={`glass p-3 sm:p-4 rounded-lg text-center space-y-1 sm:space-y-2 hover:border-cyan-500 transition-all duration-300`}
               >
-                <div className="text-2xl sm:text-3xl">{skill.icon}</div>
+                {skill.type === 'emoji' ? (
+                  <div className="text-2xl sm:text-3xl">{skill.icon}</div>
+                ) : (
+                  <div className="h-8 sm:h-10 flex items-center justify-center">
+                    <Image
+                      src={skill.icon}
+                      alt={skill.label}
+                      width={32}
+                      height={32}
+                      className="w-8 sm:w-10 h-8 sm:h-10 object-contain filter brightness-110"
+                    />
+                  </div>
+                )}
                 <p className="text-xs sm:text-sm font-semibold text-gray-200 line-clamp-2">{skill.label}</p>
               </motion.div>
             ))}
