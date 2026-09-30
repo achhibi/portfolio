@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "opensource": "Open Source",
+    "contact": "Contact",
+    "github": "GitHub"
+  },
+  "hero": {
+    "roles": [
+      "Senior Java Developer",
+      "IAM & Keycloak Expert",
+      "Cloud Architect",
+      "Microservices Specialist",
+      "Tech Leader"
+    ]
+  },
+  "about": {
+    "title": "About",
+    "bio1": "Senior Java/Spring Boot Developer with 13+ years of experience designing and developing complex and scalable architectures.",
+    "bio2": "Passionate about microservices architectures, cloud computing, AI and LLMs. Strong advocate for clean code, SOLID principles and software development best practices.",
+    "bio3": "Currently Senior Developer at Groupe AGRICA, working on identity and access management (IAM) topics with expertise in Keycloak, as well as modernization and evolution of enterprise applications.",
+    "bio4": "Outside of IT, chess is an appreciated hobby, particularly for its strategic dimension and logical thinking.",
+    "location": "France (Île-de-France)",
+    "experience": "13+ years",
+    "domains": "Java, Spring Boot, Cloud (AWS, GCP), Microservices, Software Architecture",
+    "interests": "AI, LLMs, Prompt Engineering, AI Integration",
+    "stats": {
+      "years": "Years of\nExperience",
+      "projects": "GitHub\nProjects",
+      "certifications": "Technical\nCertifications",
+      "dedication": "Code\nDedication",
+      "languages": "Languages\nFluent",
+      "frameworks": "Core\nFrameworks"
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "categories": {
+      "backend": "Backend & Cloud",
+      "iam": "IAM & Security",
+      "frontend": "Frontend & UI",
+      "devops": "DevOps & Tools",
+      "ai": "AI & Innovation",
+      "soft": "Soft Skills"
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "current": "Currently"
+  },
+  "projects": {
+    "title": "Projects",
+    "viewGithub": "View on GitHub"
+  },
+  "opensource": {
+    "title": "Open Source",
+    "contributions": "Major Contributions"
+  },
+  "contact": {
+    "title": "Get in touch",
+    "description": "Let's discuss your projects and opportunities",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully! I'll get back to you soon.",
+    "error": "Error sending message. Please try again.",
+    "availability": "Available for freelance projects, consulting, or full-time opportunities. I typically respond within 24-48 hours.",
+    "contactVia": "Contact me via:"
+  },
+  "footer": {
+    "about": "Senior Java Developer & Technical Leader specializing in cloud-native architectures and enterprise solutions.",
+    "navigation": "Navigation",
+    "connections": "Connections",
+    "copyright": "All rights reserved.",
+    "madeWith": "Designed with",
+    "developedWith": "and developed with Next.js & React",
+    "privacy": "Privacy & Security"
+  }
+}

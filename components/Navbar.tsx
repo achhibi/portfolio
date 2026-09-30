@@ -5,12 +5,14 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useTheme } from '@/hooks/useTheme'
+import { useLanguage } from '@/hooks/useLanguage'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
   const pathname = usePathname()
-  const { theme, toggleTheme, mounted } = useTheme()
+  const { theme, toggleTheme, mounted: themeLoaded } = useTheme()
+  const { language, toggleLanguage, mounted: langLoaded, t } = useLanguage()
 
   // Detect active section on scroll
   useEffect(() => {
@@ -41,13 +43,13 @@ export default function Navbar() {
   }
 
   const navItems = [
-    { name: 'Accueil', href: '#hero' },
-    { name: 'À propos', href: '#about' },
-    { name: 'Compétences', href: '#skills' },
-    { name: 'Expérience', href: '#experience' },
-    { name: 'Projets', href: '#projects' },
-    { name: 'Open Source', href: '#opensource' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('nav.home'), href: '#hero' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.skills'), href: '#skills' },
+    { name: t('nav.experience'), href: '#experience' },
+    { name: t('nav.projects'), href: '#projects' },
+    { name: t('nav.opensource'), href: '#opensource' },
+    { name: t('nav.contact'), href: '#contact' },
   ]
 
   return (
@@ -94,10 +96,36 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Theme Toggle & GitHub Button */}
+          {/* Theme Toggle, Language Selector & GitHub Button */}
           <div className="hidden md:flex gap-4 items-center">
+            {/* Language Selector */}
+            {langLoaded && (
+              <button
+                onClick={toggleLanguage}
+                className="relative inline-flex items-center h-10 w-20 rounded-full bg-gradient-to-r from-blue-300 to-indigo-400 dark:from-blue-700 dark:to-indigo-800 hover:shadow-lg hover:shadow-accent/30 transition-all duration-300 border border-blue-400 dark:border-blue-600 group"
+                title={`Switch to ${language === 'fr' ? 'English' : 'Français'}`}
+              >
+                {/* Animated background circle */}
+                <div
+                  className={`absolute top-1 left-1 w-8 h-8 rounded-full bg-white dark:bg-gradient-to-br dark:from-blue-600 dark:to-indigo-700 shadow-md transition-all duration-300 flex items-center justify-center text-sm font-bold ${
+                    language === 'fr' ? 'translate-x-0' : 'translate-x-10'
+                  }`}
+                >
+                  <span className={language === 'fr' ? 'text-blue-600' : 'text-indigo-600'}>
+                    {language === 'fr' ? 'FR' : 'EN'}
+                  </span>
+                </div>
+
+                {/* Background language codes */}
+                <div className="absolute inset-0 flex items-center justify-between px-3 pointer-events-none text-xs font-semibold">
+                  <span className="text-blue-600 opacity-70">FR</span>
+                  <span className="text-indigo-300 opacity-70">EN</span>
+                </div>
+              </button>
+            )}
+
             {/* Theme Toggle - Modern Switch */}
-            {mounted && (
+            {themeLoaded && (
               <button
                 onClick={toggleTheme}
                 className="relative inline-flex items-center h-10 w-20 rounded-full bg-gradient-to-r from-slate-300 to-slate-400 dark:from-slate-700 dark:to-slate-800 hover:shadow-lg hover:shadow-accent/30 transition-all duration-300 border border-slate-400 dark:border-slate-600 group"
@@ -139,7 +167,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="px-6 py-2 rounded-lg bg-cyan-400 text-slate-900 font-semibold hover:bg-cyan-300 transition-colors duration-300"
             >
-              GitHub
+              {t('nav.github')}
             </a>
           </div>
 

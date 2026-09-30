@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "skills": "Compétences",
+    "experience": "Expérience",
+    "projects": "Projets",
+    "opensource": "Open Source",
+    "contact": "Contact",
+    "github": "GitHub"
+  },
+  "hero": {
+    "roles": [
+      "Senior Java Developer",
+      "IAM & Keycloak Expert",
+      "Cloud Architect",
+      "Microservices Specialist",
+      "Tech Leader"
+    ]
+  },
+  "about": {
+    "title": "À propos",
+    "bio1": "Développeur senior Java/Spring Boot avec plus de 13 ans d'expérience dans la conception et le développement d'architectures complexes et scalables.",
+    "bio2": "Passionné par les architectures microservices, le cloud computing, l'IA et les LLMs. Je suis un fervent défenseur du clean code, des principes SOLID et des meilleures pratiques de développement.",
+    "bio3": "Actuellement développeur senior au sein du Groupe AGRICA, je travaille notamment sur des sujets liés à la gestion des identités et des accès (IAM), avec une expertise autour de Keycloak, ainsi que sur la modernisation et l'évolution des applications d'entreprise.",
+    "bio4": "En dehors du domaine informatique, les échecs constituent un loisir apprécié, notamment pour leur dimension stratégique et leur réflexion logique.",
+    "location": "France (Île-de-France)",
+    "experience": "13+ ans",
+    "domains": "Java, Spring Boot, Cloud (AWS, GCP), Microservices, Architecture logicielle",
+    "interests": "IA, LLMs, Prompt Engineering, AI Integration",
+    "stats": {
+      "years": "Années\nd'expérience",
+      "projects": "Projets\nGitHub",
+      "certifications": "Certifications\ntechniques",
+      "dedication": "Dédication\nau code",
+      "languages": "Langues\nMaîtrisées",
+      "frameworks": "Core\nFrameworks"
+    }
+  },
+  "skills": {
+    "title": "Compétences",
+    "categories": {
+      "backend": "Backend & Cloud",
+      "iam": "IAM & Security",
+      "frontend": "Frontend & UI",
+      "devops": "DevOps & Tools",
+      "ai": "AI & Innovation",
+      "soft": "Soft Skills"
+    }
+  },
+  "experience": {
+    "title": "Expérience",
+    "current": "Actuellement"
+  },
+  "projects": {
+    "title": "Projets",
+    "viewGithub": "Voir sur GitHub"
+  },
+  "opensource": {
+    "title": "Open Source",
+    "contributions": "Contributions majeures"
+  },
+  "contact": {
+    "title": "Entrez en contact",
+    "description": "Discutons de vos projets et opportunités",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer le message",
+    "sending": "Envoi...",
+    "success": "Message envoyé avec succès! Je vous répondrai bientôt.",
+    "error": "Erreur lors de l'envoi. Veuillez réessayer.",
+    "availability": "Disponible pour des missions de freelance, consulting ou opportunités CDI. Je réponds généralement dans les 24-48 heures.",
+    "contactVia": "Me contacter via :"
+  },
+  "footer": {
+    "about": "Senior Java Developer & Technical Leader specializing in cloud-native architectures and enterprise solutions.",
+    "navigation": "Navigation",
+    "connections": "Connexions",
+    "copyright": "Tous droits réservés.",
+    "madeWith": "Conçu avec",
+    "developedWith": "et développé avec Next.js & React",
+    "privacy": "Privacy & Security"
+  }
+}
