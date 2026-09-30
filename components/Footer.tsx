@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 export default function Footer() {
@@ -94,10 +95,12 @@ export default function Footer() {
                     className="text-gray-300 hover:text-cyan-300 transition-colors duration-300"
                     title={social.name}
                   >
-                    <img
+                    <Image
                       src={social.logo}
                       alt={social.name}
-                      className="w-6 h-6 transition-opacity hover:opacity-80"
+                      width={24}
+                      height={24}
+                      className="transition-opacity hover:opacity-80"
                     />
                   </a>
                 ))}
