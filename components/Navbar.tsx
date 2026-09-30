@@ -96,28 +96,39 @@ export default function Navbar() {
 
           {/* Theme Toggle & GitHub Button */}
           <div className="hidden md:flex gap-4 items-center">
-            {/* Theme Toggle */}
+            {/* Theme Toggle - Modern Switch */}
             {mounted && (
               <button
                 onClick={toggleTheme}
-                className="relative inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 dark:from-slate-700 dark:to-slate-800 hover:from-slate-600 hover:to-slate-700 dark:hover:from-slate-600 dark:hover:to-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-500"
+                className="relative inline-flex items-center h-10 w-20 rounded-full bg-gradient-to-r from-slate-300 to-slate-400 dark:from-slate-700 dark:to-slate-800 hover:shadow-lg hover:shadow-accent/30 transition-all duration-300 border border-slate-400 dark:border-slate-600 group"
                 title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
               >
-                {theme === 'dark' ? (
-                  <>
-                    <svg className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                    <span className="text-xs font-semibold text-gray-200">Light</span>
-                  </>
-                ) : (
-                  <>
-                    <svg className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                {/* Animated background circle */}
+                <div
+                  className={`absolute top-1 left-1 w-8 h-8 rounded-full bg-white dark:bg-gradient-to-br dark:from-slate-600 dark:to-slate-700 shadow-md transition-all duration-300 flex items-center justify-center ${
+                    theme === 'light' ? 'translate-x-0' : 'translate-x-10'
+                  }`}
+                >
+                  {theme === 'dark' ? (
+                    <svg className="w-5 h-5 text-amber-400 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                     </svg>
-                    <span className="text-xs font-semibold text-slate-700">Dark</span>
-                  </>
-                )}
+                  ) : (
+                    <svg className="w-5 h-5 text-yellow-400 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                  )}
+                </div>
+
+                {/* Background icons */}
+                <div className="absolute inset-0 flex items-center justify-between px-2 pointer-events-none">
+                  <svg className="w-4 h-4 text-yellow-500 opacity-70" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                  <svg className="w-4 h-4 text-blue-400 opacity-70" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </svg>
+                </div>
               </button>
             )}
 
