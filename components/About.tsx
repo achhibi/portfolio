@@ -1,8 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useLanguage } from '@/hooks/useLanguage'
 
 export default function About() {
+  const { t, language } = useLanguage()
+
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-surface">
       <div className="max-w-6xl mx-auto">
@@ -15,7 +18,7 @@ export default function About() {
         >
           {/* Section Title */}
           <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold">À propos</h2>
+            <h2 className="text-4xl md:text-5xl font-bold">{t('about.title')}</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-accent to-accent2 mx-auto rounded-full" />
           </div>
 
@@ -29,29 +32,29 @@ export default function About() {
               className="space-y-6 px-4 md:px-0"
             >
               <p className="text-lg text-gray-300 leading-relaxed">
-                Développeur senior Java/Spring Boot avec plus de 13 ans d'expérience dans la conception et le développement d'architectures complexes et scalables.
+                {t('about.bio1')}
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Passionné par les architectures microservices, le cloud computing, l'IA et les LLMs. Je suis un fervent défenseur du clean code, des principes SOLID et des meilleures pratiques de développement.
+                {t('about.bio2')}
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Actuellement développeur senior au sein du Groupe AGRICA, je travaille notamment sur des sujets liés à la gestion des identités et des accès (IAM), avec une expertise autour de Keycloak, ainsi que sur la modernisation et l'évolution des applications d'entreprise.
+                {t('about.bio3')}
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                En dehors du domaine informatique, les échecs constituent un loisir apprécié, notamment pour leur dimension stratégique et leur réflexion logique.
+                {t('about.bio4')}
               </p>
               <div className="pt-4 space-y-3">
                 <p className="text-gray-400">
-                  <strong className="text-accent">Localisation:</strong> France (Île-de-France)
+                  <strong className="text-accent">{language === 'fr' ? 'Localisation:' : 'Location:'}</strong> {t('about.location')}
                 </p>
                 <p className="text-gray-400">
-                  <strong className="text-accent">Expérience:</strong> 13+ ans
+                  <strong className="text-accent">{language === 'fr' ? 'Expérience:' : 'Experience:'}</strong> {t('about.experience')}
                 </p>
                 <p className="text-gray-400">
-                  <strong className="text-accent">Domaines:</strong> Java, Spring Boot, Cloud (AWS, GCP), Microservices, Architecture logicielle
+                  <strong className="text-accent">{language === 'fr' ? 'Domaines:' : 'Domains:'}</strong> {t('about.domains')}
                 </p>
                 <p className="text-gray-400">
-                  <strong className="text-accent">Intérêts actuels:</strong> IA, LLMs, Prompt Engineering, AI Integration
+                  <strong className="text-accent">{language === 'fr' ? 'Intérêts actuels:' : 'Current Interests:'}</strong> {t('about.interests')}
                 </p>
               </div>
             </motion.div>
@@ -65,12 +68,12 @@ export default function About() {
               className="grid grid-cols-2 gap-3 md:gap-6 px-4 md:px-0"
             >
               {[
-                { number: '13+', label: 'Années\nd\'expérience', icon: '📅' },
-                { number: '50+', label: 'Projets\nGitHub', icon: '🗂️' },
-                { number: '5+', label: 'Certifications\ntechniques', icon: '🏆' },
-                { number: '100%', label: 'Dédication\nau code', icon: '💯' },
-                { number: '2+', label: 'Langues\nMaîtrisées', icon: '🌍' },
-                { number: '3+', label: 'Core\nFrameworks', icon: '🔧' },
+                { number: '13+', labelKey: 'about.stats.years', icon: '📅' },
+                { number: '50+', labelKey: 'about.stats.projects', icon: '🗂️' },
+                { number: '5+', labelKey: 'about.stats.certifications', icon: '🏆' },
+                { number: '100%', labelKey: 'about.stats.dedication', icon: '💯' },
+                { number: '2+', labelKey: 'about.stats.languages', icon: '🌍' },
+                { number: '3+', labelKey: 'about.stats.frameworks', icon: '🔧' },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -79,7 +82,7 @@ export default function About() {
                 >
                   <div className="text-4xl">{stat.icon}</div>
                   <div className="text-2xl font-bold text-accent">{stat.number}</div>
-                  <p className="text-sm text-gray-400 whitespace-pre-line">{stat.label}</p>
+                  <p className="text-sm text-gray-400 whitespace-pre-line">{t(stat.labelKey)}</p>
                 </motion.div>
               ))}
             </motion.div>
