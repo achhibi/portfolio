@@ -231,20 +231,20 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-slate-900 border border-green-500/50 rounded-lg w-[95vw] h-[90vh] max-w-[1400px] max-h-[900px] flex flex-col shadow-2xl"
+              className="bg-slate-900 border border-green-500/50 rounded-lg w-[95vw] sm:w-[90vw] md:w-[85vw] h-[85vh] sm:h-[85vh] md:h-[90vh] max-w-[1400px] max-h-[90vh] flex flex-col shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Terminal Header */}
-              <div className="bg-slate-800 px-4 py-3 border-b border-green-500/30 flex justify-between items-center">
-                <div className="flex gap-2 items-center">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
-                  <span className="ml-3 text-green-400 font-mono text-sm">amor@portfolio:~$</span>
+              <div className="bg-slate-800 px-2 sm:px-4 py-2 sm:py-3 border-b border-green-500/30 flex justify-between items-center">
+                <div className="flex gap-1 sm:gap-2 items-center">
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500" />
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500" />
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500" />
+                  <span className="ml-2 sm:ml-3 text-green-400 font-mono text-xs sm:text-sm">amor@portfolio:~$</span>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="text-green-400 hover:text-green-300 font-mono text-xl"
+                  className="text-green-400 hover:text-green-300 font-mono text-lg sm:text-xl"
                 >
                   ✕
                 </button>
@@ -253,7 +253,7 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
               {/* Terminal Output */}
               <div
                 ref={outputRef}
-                className="flex-1 overflow-y-auto p-4 font-mono text-sm bg-slate-950 space-y-1 flex flex-col justify-end"
+                className="flex-1 overflow-y-auto p-2 sm:p-4 font-mono text-xs sm:text-sm bg-slate-950 space-y-1 flex flex-col justify-end"
               >
                 {output.map((line, i) => (
                   <div
@@ -272,15 +272,15 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
               </div>
 
               {/* Terminal Input */}
-              <div className="bg-slate-800 px-4 py-2 border-t border-green-500/30 flex gap-2">
-                <span className="text-green-400 font-mono">$</span>
+              <div className="bg-slate-800 px-2 sm:px-4 py-2 border-t border-green-500/30 flex gap-1 sm:gap-2">
+                <span className="text-green-400 font-mono text-xs sm:text-sm">$</span>
                 <input
                   ref={inputRef}
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  className="flex-1 bg-transparent text-green-400 outline-none font-mono"
+                  className="flex-1 bg-transparent text-green-400 outline-none font-mono text-xs sm:text-sm"
                   spellCheck="false"
                 />
               </div>
@@ -295,7 +295,7 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
       {/* Terminal Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="hidden sm:flex w-11 h-11 rounded-lg bg-slate-700/50 dark:bg-slate-800/50 text-white hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center hover:shadow-lg hover:shadow-slate-700/50 text-lg"
+        className="flex w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-slate-700/50 dark:bg-slate-800/50 text-white hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center hover:shadow-lg hover:shadow-slate-700/50 text-base sm:text-lg"
         title="Developer Console"
       >
         {'>'}_
