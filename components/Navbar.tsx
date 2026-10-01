@@ -98,40 +98,60 @@ export default function Navbar() {
 
           {/* Theme Toggle, Language Selector & GitHub Button - Visible on all screens */}
           <div className="flex gap-2 sm:gap-3 items-center">
-            {/* Language Selector - With Flags */}
+            {/* Language Selector - Clean toggle */}
             {langLoaded && (
-              <button
-                onClick={toggleLanguage}
-                className="relative inline-flex items-center h-12 w-24 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500 dark:from-blue-600 dark:to-indigo-700 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 border-2 border-blue-300 dark:border-blue-500 group"
-                title={`Switch to ${language === 'fr' ? 'English' : 'Français'}`}
-              >
-                {/* Animated flag circle */}
-                <div
-                  className={`absolute top-1.5 left-1.5 w-9 h-9 rounded-full bg-white dark:bg-slate-900 shadow-md transition-all duration-300 flex items-center justify-center text-2xl ${
-                    language === 'fr' ? 'translate-x-0' : 'translate-x-12'
+              <div className="flex gap-1 bg-slate-700/40 dark:bg-slate-800/40 rounded-full p-1 border border-slate-600 dark:border-slate-700">
+                <button
+                  onClick={() => language !== 'fr' && toggleLanguage()}
+                  className={`px-3 py-1.5 rounded-full font-bold text-sm transition-all duration-300 ${
+                    language === 'fr'
+                      ? 'bg-blue-500 text-white shadow-lg'
+                      : 'text-gray-400 hover:text-gray-200'
                   }`}
+                  title="Français"
                 >
-                  {language === 'fr' ? '🇫🇷' : '🇬🇧'}
-                </div>
-              </button>
+                  🇫🇷 FR
+                </button>
+                <button
+                  onClick={() => language !== 'en' && toggleLanguage()}
+                  className={`px-3 py-1.5 rounded-full font-bold text-sm transition-all duration-300 ${
+                    language === 'en'
+                      ? 'bg-blue-500 text-white shadow-lg'
+                      : 'text-gray-400 hover:text-gray-200'
+                  }`}
+                  title="English"
+                >
+                  🇬🇧 EN
+                </button>
+              </div>
             )}
 
-            {/* Theme Toggle - Modern Switch */}
+            {/* Theme Toggle - Clean toggle */}
             {themeLoaded && (
-              <button
-                onClick={toggleTheme}
-                className="relative inline-flex items-center h-12 w-24 rounded-full bg-gradient-to-r from-amber-300 to-orange-400 dark:from-slate-700 dark:to-slate-800 hover:shadow-lg hover:shadow-amber-400/50 dark:hover:shadow-slate-600/50 transition-all duration-300 border-2 border-amber-300 dark:border-slate-600 group"
-                title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-              >
-                {/* Animated icon circle */}
-                <div
-                  className={`absolute top-1.5 left-1.5 w-9 h-9 rounded-full bg-white dark:bg-slate-900 shadow-md transition-all duration-300 flex items-center justify-center text-2xl ${
-                    theme === 'light' ? 'translate-x-0' : 'translate-x-12'
+              <div className="flex gap-1 bg-slate-700/40 dark:bg-slate-800/40 rounded-full p-1 border border-slate-600 dark:border-slate-700">
+                <button
+                  onClick={() => theme !== 'light' && toggleTheme()}
+                  className={`px-3 py-1.5 rounded-full font-bold text-sm transition-all duration-300 ${
+                    theme === 'light'
+                      ? 'bg-yellow-500 text-white shadow-lg'
+                      : 'text-gray-400 hover:text-gray-200'
                   }`}
+                  title="Light Mode"
                 >
-                  {theme === 'dark' ? '🌙' : '☀️'}
-                </div>
-              </button>
+                  ☀️ LIGHT
+                </button>
+                <button
+                  onClick={() => theme !== 'dark' && toggleTheme()}
+                  className={`px-3 py-1.5 rounded-full font-bold text-sm transition-all duration-300 ${
+                    theme === 'dark'
+                      ? 'bg-slate-600 text-white shadow-lg'
+                      : 'text-gray-400 hover:text-gray-200'
+                  }`}
+                  title="Dark Mode"
+                >
+                  🌙 DARK
+                </button>
+              </div>
             )}
 
             {/* GitHub Button */}
@@ -139,9 +159,9 @@ export default function Navbar() {
               href="https://github.com/achhibi"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex h-10 px-4 sm:px-6 rounded-full bg-gradient-to-r from-slate-700 to-slate-800 dark:from-slate-600 dark:to-slate-700 text-white font-semibold hover:shadow-lg hover:shadow-slate-700/50 transition-all duration-300 border border-slate-600 dark:border-slate-500 items-center justify-center text-sm"
+              className="hidden sm:flex px-4 py-2 rounded-full bg-slate-700/50 dark:bg-slate-800/50 text-white font-bold hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center gap-2 text-sm hover:shadow-lg"
             >
-              🐙
+              🐙 GitHub
             </a>
           </div>
 
