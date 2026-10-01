@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useTheme } from '@/hooks/useTheme'
 import { useLanguage } from '@/app/providers'
+import Terminal from './Terminal'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -168,6 +169,9 @@ export default function Navbar() {
                 className="w-6 h-6"
               />
             </a>
+
+            {/* Terminal */}
+            <Terminal />
           </div>
 
           {/* Mobile Menu Button */}
