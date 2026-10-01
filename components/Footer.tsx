@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { useLanguage } from '@/hooks/useLanguage'
+import { useLanguage } from '@/app/providers'
 
 export default function Footer() {
   const { t } = useLanguage()

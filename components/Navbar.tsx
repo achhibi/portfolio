@@ -6,14 +6,14 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useTheme } from '@/hooks/useTheme'
-import { useLanguage } from '@/hooks/useLanguage'
+import { useLanguage } from '@/app/providers'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
   const pathname = usePathname()
   const { theme, toggleTheme, mounted: themeLoaded } = useTheme()
-  const { language, toggleLanguage, mounted: langLoaded, t } = useLanguage()
+  const { language, toggleLanguage, t } = useLanguage()
 
   // Detect active section on scroll
   useEffect(() => {
@@ -100,8 +100,7 @@ export default function Navbar() {
           {/* Theme Toggle, Language Selector & GitHub Button - Visible on all screens */}
           <div className="flex gap-2 sm:gap-3 items-center">
             {/* Language Selector - Flag Icons */}
-            {langLoaded && (
-              <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center">
                 <button
                   onClick={() => language !== 'fr' && toggleLanguage()}
                   className={`relative w-10 h-10 rounded-lg overflow-hidden transition-all duration-300 border-2 ${
@@ -136,8 +135,7 @@ export default function Navbar() {
                     priority
                   />
                 </button>
-              </div>
-            )}
+            </div>
 
             {/* Theme Toggle - Icon only */}
             {themeLoaded && (

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { useLanguage } from '@/hooks/useLanguage'
+import { useLanguage } from '@/app/providers'
 
 export default function Hero() {
   const { t } = useLanguage()

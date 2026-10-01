@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { useLanguage } from '@/hooks/useLanguage'
+import { useLanguage } from '@/app/providers'
 
 export default function Contact() {
   const { t } = useLanguage()

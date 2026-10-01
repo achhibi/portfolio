@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StructuredData from '@/components/StructuredData'
 import { Analytics } from '@vercel/analytics/next'
+import { LanguageProvider } from '@/app/providers'
 
 export const metadata: Metadata = {
   title: 'Amor Chhibi - Senior Java/Spring Developer | Technical Leader',
@@ -78,11 +79,13 @@ export default function RootLayout({
         `}} />
       </head>
       <body className="bg-primary text-gray-100">
-        <Navbar />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <LanguageProvider>
+          <Navbar />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>
