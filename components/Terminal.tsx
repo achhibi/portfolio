@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '@/app/providers'
 import { createPortal } from 'react-dom'
+import { getRandomJoke } from '@/lib/jokes'
 
 interface TerminalCommand {
   name: string
@@ -151,6 +152,14 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
         setIsOpen(false)
         return ''
       }
+    },
+    jokes: {
+      name: 'jokes',
+      description: 'Get a random programmer joke',
+      execute: () => {
+        const joke = getRandomJoke()
+        return `\n${joke}\n`
+      }
     }
   }
 
@@ -295,7 +304,7 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
       {/* Terminal Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="flex w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-slate-700/50 dark:bg-slate-800/50 text-white hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center hover:shadow-lg hover:shadow-slate-700/50 text-base sm:text-lg"
+        className="flex w-8 h-8 sm:w-9 sm:h-9 rounded-md bg-slate-700/50 dark:bg-slate-800/50 text-white hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center hover:shadow-lg hover:shadow-slate-700/50 text-sm sm:text-base"
         title="Developer Console"
       >
         {'>'}_

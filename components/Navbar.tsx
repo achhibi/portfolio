@@ -105,12 +105,12 @@ export default function Navbar() {
           </div>
 
           {/* Theme Toggle, Language Selector & GitHub Button - Visible on all screens */}
-          <div className="flex gap-2 sm:gap-3 items-center">
+          <div className="flex gap-1.5 sm:gap-2 items-center">
             {/* Language Selector - Flag Icons */}
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-1.5 items-center">
                 <button
                   onClick={() => language !== 'fr' && toggleLanguage()}
-                  className={`relative w-10 h-10 rounded-lg overflow-hidden transition-all duration-300 border-2 ${
+                  className={`relative w-8 h-8 rounded-md overflow-hidden transition-all duration-300 border-2 ${
                     language === 'fr'
                       ? 'border-blue-400 shadow-lg shadow-blue-400/50'
                       : 'border-slate-600 dark:border-slate-700 opacity-60 hover:opacity-100'
@@ -127,7 +127,7 @@ export default function Navbar() {
                 </button>
                 <button
                   onClick={() => language !== 'en' && toggleLanguage()}
-                  className={`relative w-10 h-10 rounded-lg overflow-hidden transition-all duration-300 border-2 ${
+                  className={`relative w-8 h-8 rounded-md overflow-hidden transition-all duration-300 border-2 ${
                     language === 'en'
                       ? 'border-blue-400 shadow-lg shadow-blue-400/50'
                       : 'border-slate-600 dark:border-slate-700 opacity-60 hover:opacity-100'
@@ -148,7 +148,7 @@ export default function Navbar() {
             {themeLoaded && (
               <button
                 onClick={toggleTheme}
-                className={`w-10 h-10 rounded-lg flex items-center justify-center text-xl transition-all duration-300 border-2 ${
+                className={`w-8 h-8 rounded-md flex items-center justify-center text-lg transition-all duration-300 border-2 ${
                   theme === 'light'
                     ? 'bg-yellow-400/20 border-yellow-400 text-yellow-400 shadow-lg shadow-yellow-400/30'
                     : 'bg-slate-700/50 border-slate-600 dark:border-slate-700 text-slate-300'
@@ -164,15 +164,15 @@ export default function Navbar() {
               href="https://github.com/achhibi"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex w-11 h-11 rounded-lg bg-slate-700/50 dark:bg-slate-800/50 text-white hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center hover:shadow-lg hover:shadow-slate-700/50 p-2"
+              className="hidden sm:flex w-8 h-8 rounded-md bg-slate-700/50 dark:bg-slate-800/50 text-white hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center hover:shadow-lg hover:shadow-slate-700/50 p-1.5"
               title="GitHub"
             >
               <Image
                 src="/logos/github-logo.svg"
                 alt="GitHub"
-                width={24}
-                height={24}
-                className="w-6 h-6"
+                width={20}
+                height={20}
+                className="w-5 h-5"
               />
             </a>
 
