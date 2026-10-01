@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useTheme } from '@/hooks/useTheme'
@@ -98,60 +99,59 @@ export default function Navbar() {
 
           {/* Theme Toggle, Language Selector & GitHub Button - Visible on all screens */}
           <div className="flex gap-2 sm:gap-3 items-center">
-            {/* Language Selector - Clean toggle */}
+            {/* Language Selector - Flag Icons */}
             {langLoaded && (
-              <div className="flex gap-1 bg-slate-700/40 dark:bg-slate-800/40 rounded-full p-1 border border-slate-600 dark:border-slate-700">
+              <div className="flex gap-2 items-center">
                 <button
                   onClick={() => language !== 'fr' && toggleLanguage()}
-                  className={`px-3 py-1.5 rounded-full font-bold text-sm transition-all duration-300 ${
+                  className={`relative w-10 h-10 rounded-lg overflow-hidden transition-all duration-300 border-2 ${
                     language === 'fr'
-                      ? 'bg-blue-500 text-white shadow-lg'
-                      : 'text-gray-400 hover:text-gray-200'
+                      ? 'border-blue-400 shadow-lg shadow-blue-400/50'
+                      : 'border-slate-600 dark:border-slate-700 opacity-60 hover:opacity-100'
                   }`}
                   title="Français"
                 >
-                  🇫🇷 FR
+                  <Image
+                    src="/flags/fr.svg"
+                    alt="Français"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </button>
                 <button
                   onClick={() => language !== 'en' && toggleLanguage()}
-                  className={`px-3 py-1.5 rounded-full font-bold text-sm transition-all duration-300 ${
+                  className={`relative w-10 h-10 rounded-lg overflow-hidden transition-all duration-300 border-2 ${
                     language === 'en'
-                      ? 'bg-blue-500 text-white shadow-lg'
-                      : 'text-gray-400 hover:text-gray-200'
+                      ? 'border-blue-400 shadow-lg shadow-blue-400/50'
+                      : 'border-slate-600 dark:border-slate-700 opacity-60 hover:opacity-100'
                   }`}
                   title="English"
                 >
-                  🇬🇧 EN
+                  <Image
+                    src="/flags/en.svg"
+                    alt="English"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </button>
               </div>
             )}
 
-            {/* Theme Toggle - Clean toggle */}
+            {/* Theme Toggle - Icon only */}
             {themeLoaded && (
-              <div className="flex gap-1 bg-slate-700/40 dark:bg-slate-800/40 rounded-full p-1 border border-slate-600 dark:border-slate-700">
-                <button
-                  onClick={() => theme !== 'light' && toggleTheme()}
-                  className={`px-3 py-1.5 rounded-full font-bold text-sm transition-all duration-300 ${
-                    theme === 'light'
-                      ? 'bg-yellow-500 text-white shadow-lg'
-                      : 'text-gray-400 hover:text-gray-200'
-                  }`}
-                  title="Light Mode"
-                >
-                  ☀️ LIGHT
-                </button>
-                <button
-                  onClick={() => theme !== 'dark' && toggleTheme()}
-                  className={`px-3 py-1.5 rounded-full font-bold text-sm transition-all duration-300 ${
-                    theme === 'dark'
-                      ? 'bg-slate-600 text-white shadow-lg'
-                      : 'text-gray-400 hover:text-gray-200'
-                  }`}
-                  title="Dark Mode"
-                >
-                  🌙 DARK
-                </button>
-              </div>
+              <button
+                onClick={toggleTheme}
+                className={`w-10 h-10 rounded-lg flex items-center justify-center text-xl transition-all duration-300 border-2 ${
+                  theme === 'light'
+                    ? 'bg-yellow-400/20 border-yellow-400 text-yellow-400 shadow-lg shadow-yellow-400/30'
+                    : 'bg-slate-700/50 border-slate-600 dark:border-slate-700 text-slate-300'
+                }`}
+                title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              >
+                {theme === 'dark' ? '☀️' : '🌙'}
+              </button>
             )}
 
             {/* GitHub Button */}
@@ -159,9 +159,10 @@ export default function Navbar() {
               href="https://github.com/achhibi"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex px-4 py-2 rounded-full bg-slate-700/50 dark:bg-slate-800/50 text-white font-bold hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center gap-2 text-sm hover:shadow-lg"
+              className="hidden sm:flex w-10 h-10 rounded-lg bg-slate-700/50 dark:bg-slate-800/50 text-white hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center text-xl hover:shadow-lg hover:shadow-slate-700/50"
+              title="GitHub"
             >
-              🐙 GitHub
+              🐙
             </a>
           </div>
 
