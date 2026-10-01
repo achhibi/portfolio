@@ -3,43 +3,11 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '@/app/providers'
-import { Chess } from 'chess.js'
 
 interface TerminalCommand {
   name: string
   description: string
-  execute: (args?: string[]) => string
-}
-
-interface ChessGame {
-  active: boolean
-  chess: Chess
-  moves: string[]
-}
-
-function renderChessBoard(chess: Chess): string {
-  const board = chess.board()
-  const pieceSymbols: Record<string, string> = {
-    'p': '♟', 'r': '♜', 'n': '♞', 'b': '♝', 'q': '♛', 'k': '♚',
-    'P': '♙', 'R': '♖', 'N': '♘', 'B': '♗', 'Q': '♕', 'K': '♔'
-  }
-
-  let boardStr = '  a b c d e f g h\n'
-  for (let i = 7; i >= 0; i--) {
-    boardStr += `${i + 1} `
-    for (let j = 0; j < 8; j++) {
-      const piece = board[i][j]
-      if (piece) {
-        const symbol = piece.type + (piece.color === 'w' ? '' : '')
-        boardStr += (piece.color === 'w' ? piece.type.toUpperCase() : piece.type) + ' '
-      } else {
-        boardStr += '· '
-      }
-    }
-    boardStr += `${i + 1}\n`
-  }
-  boardStr += '  a b c d e f g h'
-  return boardStr
+  execute: () => string
 }
 
 export default function Terminal() {
@@ -50,7 +18,6 @@ export default function Terminal() {
   ])
   const [history, setHistory] = useState<string[]>([])
   const [historyIndex, setHistoryIndex] = useState(-1)
-  const [chessGame, setChessGame] = useState<ChessGame | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const outputRef = useRef<HTMLDivElement>(null)
 
@@ -163,18 +130,6 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
         return ''
       }
     },
-    chess: {
-      name: 'chess',
-      description: 'Play chess (chess --play)',
-      execute: (args?: string[]) => {
-        if (args?.[0] === '--play') {
-          const chess = new Chess()
-          setChessGame({ active: true, chess, moves: [] })
-          return `♟️ Chess Game Started!\nType moves in algebraic notation (e.g., e2e4)\nType "quit" to exit\n\n${renderChessBoard(chess)}`
-        }
-        return 'Usage: chess --play'
-      }
-    },
     exit: {
       name: 'exit',
       description: 'Close terminal',
@@ -187,54 +142,18 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
 
   const executeCommand = (cmd: string) => {
     const trimmed = cmd.trim().toLowerCase()
-    const parts = trimmed.split(' ')
-    const baseCmd = parts[0]
+    const command = commands[trimmed]
 
     const newOutput = [...output]
     newOutput.push({ type: 'input', text: `$ ${cmd}` })
 
-    // Handle chess game moves
-    if (chessGame?.active && !commands[baseCmd]) {
-      if (trimmed === 'quit') {
-        setChessGame(null)
-        newOutput.push({ type: 'output', text: 'Exiting chess game...' })
-      } else {
-        try {
-          const moves = chessGame.chess.moves({ verbose: true })
-          const move = chessGame.chess.move(trimmed)
-
-          if (move) {
-            const newMoves = [...chessGame.moves, move.san]
-            setChessGame({ ...chessGame, moves: newMoves })
-
-            let result = `Move: ${move.san}\n\n${renderChessBoard(chessGame.chess)}\n`
-            if (chessGame.chess.isCheckmate()) {
-              result += '\n♔ Checkmate! Game Over.'
-              setChessGame(null)
-            } else if (chessGame.chess.isCheck()) {
-              result += '\n♔ Check!'
-            } else if (chessGame.chess.isStalemate()) {
-              result += '\n♔ Stalemate!'
-              setChessGame(null)
-            }
-            newOutput.push({ type: 'output', text: result })
-          } else {
-            newOutput.push({ type: 'error', text: `Invalid move: ${trimmed}\nValid moves: ${moves.map(m => m.san).join(', ').substring(0, 100)}...` })
-          }
-        } catch (e) {
-          newOutput.push({ type: 'error', text: `Invalid move: ${trimmed}` })
-        }
-      }
+    if (command) {
+      const result = command.execute()
+      if (result) newOutput.push({ type: 'output', text: result })
+    } else if (trimmed === '') {
+      // Do nothing for empty commands
     } else {
-      const command = commands[baseCmd]
-      if (command) {
-        const result = command.execute(parts.slice(1))
-        if (result) newOutput.push({ type: 'output', text: result })
-      } else if (trimmed === '') {
-        // Do nothing for empty commands
-      } else {
-        newOutput.push({ type: 'error', text: `Command not found: ${cmd}\nType "help" for available commands` })
-      }
+      newOutput.push({ type: 'error', text: `Command not found: ${cmd}\nType "help" for available commands` })
     }
 
     setOutput(newOutput)
@@ -295,21 +214,21 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
         {'>'}_
       </button>
 
-      {/* Terminal Modal */}
+      {/* Terminal Modal - Full Screen */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center"
             onClick={() => setIsOpen(false)}
           >
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="bg-slate-900 border border-green-500/50 rounded-lg w-full max-w-2xl max-h-96 flex flex-col shadow-2xl"
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="bg-slate-900 border border-green-500/50 rounded-lg w-[95vw] h-[90vh] flex flex-col shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Terminal Header */}
