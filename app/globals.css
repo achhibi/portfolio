@@ -56,19 +56,36 @@ body {
   background: #0891b2;
 }
 
-/* Light mode: text colors */
-:is(html:not(.dark)) .text-gray-200,
-:is(html:not(.dark)) .text-gray-300,
-:is(html:not(.dark)) .text-gray-400 {
-  color: #475569;
+/* Light mode: text colors - Much darker for better contrast */
+:is(html:not(.dark)) .text-gray-100 {
+  color: #0f172a;
 }
 
-:is(html:not(.dark)) .text-gray-100 {
+:is(html:not(.dark)) .text-gray-200,
+:is(html:not(.dark)) .text-gray-300 {
+  color: #1e293b;
+}
+
+:is(html:not(.dark)) .text-gray-400 {
   color: #334155;
 }
 
 :is(html:not(.dark)) .text-white {
-  color: #1e293b;
+  color: #0f172a;
+}
+
+/* Light mode: accent colors - More visible */
+:is(html:not(.dark)) .text-cyan-300,
+:is(html:not(.dark)) .text-cyan-400 {
+  color: #0891b2;
+}
+
+:is(html:not(.dark)) .text-accent {
+  color: #0891b2;
+}
+
+:is(html:not(.dark)) .text-accent2 {
+  color: #7c3aed;
 }
 
 /* Light mode: placeholder */
@@ -141,12 +158,31 @@ body {
 
 /* Light mode: glass containers in stats */
 :is(html:not(.dark)) .glass p {
-  color: #64748b;
+  color: #334155;
+}
+
+:is(html:not(.dark)) .glass {
+  background: rgba(248, 250, 252, 0.95) !important;
+  border-color: rgba(15, 23, 42, 0.2) !important;
 }
 
 /* Light mode: strong/bold text */
 :is(html:not(.dark)) strong {
   color: #0891b2;
+}
+
+/* Light mode: better button contrast */
+:is(html:not(.dark)) button {
+  color: #0f172a;
+}
+
+/* Light mode: improved link colors */
+:is(html:not(.dark)) a {
+  color: #0891b2 !important;
+}
+
+:is(html:not(.dark)) a:hover {
+  color: #7c3aed !important;
 }
 
 /* Gradient background animation */
