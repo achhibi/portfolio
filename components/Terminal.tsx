@@ -16,7 +16,7 @@ export default function Terminal() {
   const [mounted, setMounted] = useState(false)
   const [input, setInput] = useState('')
   const [output, setOutput] = useState<Array<{ type: 'input' | 'output' | 'error'; text: string }>>([
-    { type: 'output', text: '👨‍💻 Welcome to Amor Chhibi\'s Developer Console\nType "help" for available commands\n' }
+    { type: 'output', text: '👨‍💻 Welcome to Amor Chhibi\'s Developer Console\nType "help" for available commands\nType "exit" or "close" to exit\n' }
   ])
   const [history, setHistory] = useState<string[]>([])
   const [historyIndex, setHistoryIndex] = useState(-1)
@@ -138,6 +138,14 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
     },
     exit: {
       name: 'exit',
+      description: 'Close terminal',
+      execute: () => {
+        setIsOpen(false)
+        return ''
+      }
+    },
+    close: {
+      name: 'close',
       description: 'Close terminal',
       execute: () => {
         setIsOpen(false)
