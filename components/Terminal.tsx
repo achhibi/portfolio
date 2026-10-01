@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '@/app/providers'
+import { createPortal } from 'react-dom'
 
 interface TerminalCommand {
   name: string
@@ -12,6 +13,7 @@ interface TerminalCommand {
 
 export default function Terminal() {
   const [isOpen, setIsOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const [input, setInput] = useState('')
   const [output, setOutput] = useState<Array<{ type: 'input' | 'output' | 'error'; text: string }>>([
     { type: 'output', text: '👨‍💻 Welcome to Amor Chhibi\'s Developer Console\nType "help" for available commands\n' }
@@ -22,6 +24,10 @@ export default function Terminal() {
   const outputRef = useRef<HTMLDivElement>(null)
 
   const { language } = useLanguage()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const commands: Record<string, TerminalCommand> = {
     help: {
@@ -203,20 +209,9 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
     }
   }, [isOpen])
 
-  return (
-    <>
-      {/* Terminal Button */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="hidden sm:flex w-11 h-11 rounded-lg bg-slate-700/50 dark:bg-slate-800/50 text-white hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center hover:shadow-lg hover:shadow-slate-700/50 text-lg"
-        title="Developer Console"
-      >
-        {'>'}_
-      </button>
-
-      {/* Terminal Modal - Full Screen */}
-      <AnimatePresence>
-        {isOpen && (
+  const modalContent = (
+    <AnimatePresence>
+      {isOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -285,6 +280,21 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
           </motion.div>
         )}
       </AnimatePresence>
+  )
+
+  return (
+    <>
+      {/* Terminal Button */}
+      <button
+        onClick={() => setIsOpen(true)}
+        className="hidden sm:flex w-11 h-11 rounded-lg bg-slate-700/50 dark:bg-slate-800/50 text-white hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center hover:shadow-lg hover:shadow-slate-700/50 text-lg"
+        title="Developer Console"
+      >
+        {'>'}_
+      </button>
+
+      {/* Terminal Modal - Full Screen using Portal */}
+      {mounted && createPortal(modalContent, document.body)}
     </>
   )
 }
