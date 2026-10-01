@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { useLanguage } from '@/hooks/useLanguage'
 
 export default function Contact() {
+  const { t } = useLanguage()
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [statusMessage, setStatusMessage] = useState('')
@@ -33,15 +35,15 @@ export default function Contact() {
       const data = await response.json()
       if (data.success) {
         setStatus('success')
-        setStatusMessage('Message envoyé avec succès! Je vous répondrai bientôt.')
+        setStatusMessage(t('contact.success'))
         setFormData({ name: '', email: '', message: '' })
       } else {
         setStatus('error')
-        setStatusMessage('Erreur lors de l\'envoi. Veuillez réessayer.')
+        setStatusMessage(t('contact.error'))
       }
     } catch (error) {
       setStatus('error')
-      setStatusMessage('Erreur de connexion. Veuillez réessayer.')
+      setStatusMessage(t('contact.error'))
     }
   }
 
@@ -57,9 +59,9 @@ export default function Contact() {
         >
           {/* Section Title */}
           <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold">Entrez en contact</h2>
+            <h2 className="text-4xl md:text-5xl font-bold">{t('contact.title')}</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-accent to-accent2 mx-auto rounded-full" />
-            <p className="text-gray-400 text-lg">Discutons de vos projets et opportunités</p>
+            <p className="text-gray-400 text-lg">{t('contact.description')}</p>
           </div>
 
           {/* Contact Methods */}
@@ -89,7 +91,7 @@ export default function Contact() {
                 value: 'chhibi-amor',
                 link: 'https://stackoverflow.com/users/2867361/chhibi-amor',
               },
-            ].map((contact, index) => {
+            ].map((contact: any, index: number) => {
               // Validate URL to prevent open redirect
               const isValidUrl = (url: string) => {
                 try {
@@ -131,7 +133,7 @@ export default function Contact() {
               {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-300 mb-2">
-                  Nom *
+                  {t('contact.name')} *
                 </label>
                 <input
                   type="text"
@@ -140,7 +142,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="Votre nom"
+                  placeholder={t('contact.name')}
                   className="w-full bg-slate-800/50 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
                 />
               </div>
@@ -148,7 +150,7 @@ export default function Contact() {
               {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-2">
-                  Email *
+                  {t('contact.email')} *
                 </label>
                 <input
                   type="email"
@@ -165,7 +167,7 @@ export default function Contact() {
               {/* Message */}
               <div>
                 <label htmlFor="message" className="block text-sm font-semibold text-gray-300 mb-2">
-                  Message *
+                  {t('contact.message')} *
                 </label>
                 <textarea
                   id="message"
@@ -173,7 +175,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  placeholder="Votre message..."
+                  placeholder={t('contact.message')}
                   rows={5}
                   className="w-full bg-slate-800/50 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors resize-none"
                 />
@@ -185,7 +187,7 @@ export default function Contact() {
                 disabled={status === 'loading'}
                 className="w-full bg-gradient-to-r from-accent to-accent2 text-slate-900 font-bold py-3 rounded-lg hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {status === 'loading' ? 'Envoi...' : 'Envoyer le message'}
+                {status === 'loading' ? t('contact.sending') : t('contact.send')}
               </button>
 
               {/* Status Messages */}
@@ -214,11 +216,10 @@ export default function Contact() {
             className="text-center pt-8 space-y-6"
           >
             <p className="text-gray-300 text-lg">
-              Disponible pour des missions de freelance, consulting ou opportunités CDI. <br />
-              Je réponds généralement dans les 24-48 heures.
+              {t('contact.availability')}
             </p>
             <div className="space-y-3 text-gray-400">
-              <p className="font-semibold text-accent">Me contacter via :</p>
+              <p className="font-semibold text-accent">{t('contact.contactVia')}</p>
               <p>LinkedIn • GitHub • Stack Overflow</p>
             </div>
           </motion.div>

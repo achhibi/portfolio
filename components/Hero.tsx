@@ -3,24 +3,41 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-
-const passions = [
-  { label: 'Java & Spring Boot', icon: '☕', color: 'from-orange-500 to-red-500' },
-  { label: 'AI & LLMs', icon: '🤖', color: 'from-purple-500 to-pink-500' },
-  { label: 'Cloud Architecture', icon: '☁️', color: 'from-cyan-500 to-blue-500' },
-  { label: 'Microservices', icon: '🏗️', color: 'from-green-500 to-emerald-500' },
-  { label: 'Software Excellence', icon: '⚡', color: 'from-yellow-500 to-orange-500' },
-]
+import { useLanguage } from '@/hooks/useLanguage'
 
 export default function Hero() {
+  const { t } = useLanguage()
   const [currentPassion, setCurrentPassion] = useState(0)
+  const [passions, setPassions] = useState<Array<{ label: string; icon: string; color: string }>>([])
+
+  const passionColors = [
+    'from-orange-500 to-red-500',
+    'from-purple-500 to-pink-500',
+    'from-cyan-500 to-blue-500',
+    'from-green-500 to-emerald-500',
+    'from-yellow-500 to-orange-500',
+  ]
 
   useEffect(() => {
+    const passionsList = t('hero.passions') as any
+    if (Array.isArray(passionsList)) {
+      setPassions(
+        passionsList.map((p, i) => ({
+          label: p.label,
+          icon: p.icon,
+          color: passionColors[i % passionColors.length],
+        }))
+      )
+    }
+  }, [t])
+
+  useEffect(() => {
+    if (passions.length === 0) return
     const interval = setInterval(() => {
       setCurrentPassion((prev) => (prev + 1) % passions.length)
     }, 3000)
     return () => clearInterval(interval)
-  }, [])
+  }, [passions.length])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -59,7 +76,7 @@ export default function Hero() {
         >
           {/* Greeting */}
           <motion.div variants={itemVariants}>
-            <p className="text-accent text-lg font-semibold">Bienvenue</p>
+            <p className="text-accent text-lg font-semibold">{t('hero.greeting')}</p>
           </motion.div>
 
           {/* Name & Title */}
@@ -68,41 +85,43 @@ export default function Hero() {
             className="space-y-2 px-4"
           >
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white drop-shadow-lg">
-              Amor Chhibi
+              {t('hero.title')}
             </h1>
             <div className="text-xl sm:text-2xl md:text-4xl font-bold">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-violet-400">
-                Ingénieur Informatique Senior
+                {t('hero.subtitle')}
               </span>
             </div>
           </motion.div>
 
           {/* Passion Badge */}
-          <motion.div
-            variants={itemVariants}
-            className="flex items-center justify-center h-auto min-h-16 px-4"
-          >
+          {passions.length > 0 && (
             <motion.div
-              key={currentPassion}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.5 }}
-              className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full bg-gradient-to-r ${passions[currentPassion].color} text-white font-semibold shadow-lg text-base sm:text-lg md:text-xl flex items-center justify-center gap-2`}
+              variants={itemVariants}
+              className="flex items-center justify-center h-auto min-h-16 px-4"
             >
-              <span className="text-xl sm:text-2xl">{passions[currentPassion].icon}</span>
-              <span className="truncate">{passions[currentPassion].label}</span>
+              <motion.div
+                key={currentPassion}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5 }}
+                className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full bg-gradient-to-r ${passions[currentPassion]?.color || 'from-cyan-500 to-blue-500'} text-white font-semibold shadow-lg text-base sm:text-lg md:text-xl flex items-center justify-center gap-2`}
+              >
+                <span className="text-xl sm:text-2xl">{passions[currentPassion]?.icon}</span>
+                <span className="truncate">{passions[currentPassion]?.label}</span>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          )}
 
           {/* Description */}
           <motion.p
             variants={itemVariants}
             className="text-gray-100 text-base sm:text-lg md:text-lg max-w-3xl mx-auto leading-relaxed drop-shadow-md font-medium px-4"
           >
-            Avec 13+ ans d'expérience en développement Java/Spring Boot, Cloud et Microservices.
+            {t('hero.description')}
             <br/>
-            <span className="text-cyan-300">Passionné par l'IA et les LLMs</span>, l'innovation technologique et l'excellence du code.
+            <span className="text-cyan-300">{t('hero.description2')}</span>
           </motion.p>
 
           {/* Skills Grid */}
@@ -110,17 +129,7 @@ export default function Hero() {
             variants={itemVariants}
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4 max-w-3xl mx-auto pt-6 sm:pt-8 px-4"
           >
-            {[
-              { icon: '☕', label: 'Java', color: 'orange', type: 'emoji' },
-              { icon: '/logos/spring.svg', label: 'Spring Boot', color: 'green', type: 'logo' },
-              { icon: '☁️', label: 'Cloud', color: 'cyan', type: 'emoji' },
-              { icon: '🤖', label: 'AI/LLMs', color: 'purple', type: 'emoji' },
-              { icon: '🏗️', label: 'Microservices', color: 'blue', type: 'emoji' },
-              { icon: '/logos/keycloak.svg', label: 'Keycloak', color: 'red', type: 'logo' },
-              { icon: '🎯', label: 'Problem Solving', color: 'yellow', type: 'emoji' },
-              { icon: '🤝', label: 'Team Collaboration', color: 'pink', type: 'emoji' },
-              { icon: '🔓', label: 'Open Source Lover', color: 'green', type: 'emoji' },
-            ].map((skill, index) => (
+            {((t('hero.skills') as any) || []).map((skill: any, index: number) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.05, y: -3 }}
@@ -131,7 +140,7 @@ export default function Hero() {
                 ) : (
                   <div className="h-8 sm:h-10 flex items-center justify-center">
                     <Image
-                      src={skill.icon}
+                      src={skill.label === 'Spring Boot' ? '/logos/spring.svg' : '/logos/keycloak.svg'}
                       alt={skill.label}
                       width={32}
                       height={32}
@@ -153,13 +162,13 @@ export default function Hero() {
               href="#about"
               className="px-6 sm:px-8 py-3 rounded-lg bg-cyan-400 text-slate-900 font-bold hover:bg-cyan-300 hover:shadow-xl hover:shadow-cyan-400/50 transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base"
             >
-              En savoir plus
+              {t('hero.learnMore')}
             </a>
             <a
               href="#contact"
               className="px-6 sm:px-8 py-3 rounded-lg border-2 border-cyan-300 text-cyan-300 font-bold hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base"
             >
-              Me contacter
+              {t('hero.contact')}
             </a>
           </motion.div>
 

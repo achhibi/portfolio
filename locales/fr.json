@@ -10,13 +10,31 @@
     "github": "GitHub"
   },
   "hero": {
-    "roles": [
-      "Senior Java Developer",
-      "IAM & Keycloak Expert",
-      "Cloud Architect",
-      "Microservices Specialist",
-      "Tech Leader"
-    ]
+    "greeting": "Bienvenue",
+    "title": "Amor Chhibi",
+    "subtitle": "Ingénieur Informatique Senior",
+    "passions": [
+      { "label": "Java & Spring Boot", "icon": "☕" },
+      { "label": "IA & LLMs", "icon": "🤖" },
+      { "label": "Cloud Architecture", "icon": "☁️" },
+      { "label": "Microservices", "icon": "🏗️" },
+      { "label": "Excellence Logicielle", "icon": "⚡" }
+    ],
+    "description": "Avec 13+ ans d'expérience en développement Java/Spring Boot, Cloud et Microservices.",
+    "description2": "Passionné par l'IA et les LLMs, l'innovation technologique et l'excellence du code.",
+    "skills": [
+      { "label": "Java", "type": "emoji", "icon": "☕" },
+      { "label": "Spring Boot", "type": "logo" },
+      { "label": "Cloud", "type": "emoji", "icon": "☁️" },
+      { "label": "IA/LLMs", "type": "emoji", "icon": "🤖" },
+      { "label": "Microservices", "type": "emoji", "icon": "🏗️" },
+      { "label": "Keycloak", "type": "logo" },
+      { "label": "Résolution de Problèmes", "type": "emoji", "icon": "🎯" },
+      { "label": "Collaboration d'équipe", "type": "emoji", "icon": "🤝" },
+      { "label": "Amoureux de l'Open Source", "type": "emoji", "icon": "🔓" }
+    ],
+    "learnMore": "En savoir plus",
+    "contact": "Me contacter"
   },
   "about": {
     "title": "À propos",
@@ -74,12 +92,12 @@
     "contactVia": "Me contacter via :"
   },
   "footer": {
-    "about": "Senior Java Developer & Technical Leader specializing in cloud-native architectures and enterprise solutions.",
+    "about": "Développeur Senior Java & Leader Technique spécialisé dans les architectures cloud-native et les solutions d'entreprise.",
     "navigation": "Navigation",
     "connections": "Connexions",
     "copyright": "Tous droits réservés.",
     "madeWith": "Conçu avec",
     "developedWith": "et développé avec Next.js & React",
-    "privacy": "Privacy & Security"
+    "privacy": "Confidentialité & Sécurité"
   }
 }

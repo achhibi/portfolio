@@ -10,13 +10,31 @@
     "github": "GitHub"
   },
   "hero": {
-    "roles": [
-      "Senior Java Developer",
-      "IAM & Keycloak Expert",
-      "Cloud Architect",
-      "Microservices Specialist",
-      "Tech Leader"
-    ]
+    "greeting": "Welcome",
+    "title": "Amor Chhibi",
+    "subtitle": "Senior Software Engineer",
+    "passions": [
+      { "label": "Java & Spring Boot", "icon": "☕" },
+      { "label": "AI & LLMs", "icon": "🤖" },
+      { "label": "Cloud Architecture", "icon": "☁️" },
+      { "label": "Microservices", "icon": "🏗️" },
+      { "label": "Software Excellence", "icon": "⚡" }
+    ],
+    "description": "With 13+ years of experience in Java/Spring Boot, Cloud and Microservices development.",
+    "description2": "Passionate about AI and LLMs, technological innovation and code excellence.",
+    "skills": [
+      { "label": "Java", "type": "emoji", "icon": "☕" },
+      { "label": "Spring Boot", "type": "logo" },
+      { "label": "Cloud", "type": "emoji", "icon": "☁️" },
+      { "label": "AI/LLMs", "type": "emoji", "icon": "🤖" },
+      { "label": "Microservices", "type": "emoji", "icon": "🏗️" },
+      { "label": "Keycloak", "type": "logo" },
+      { "label": "Problem Solving", "type": "emoji", "icon": "🎯" },
+      { "label": "Team Collaboration", "type": "emoji", "icon": "🤝" },
+      { "label": "Open Source Lover", "type": "emoji", "icon": "🔓" }
+    ],
+    "learnMore": "Learn More",
+    "contact": "Contact Me"
   },
   "about": {
     "title": "About",

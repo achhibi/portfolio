@@ -2,12 +2,14 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { useLanguage } from '@/hooks/useLanguage'
 
 export default function Footer() {
+  const { t } = useLanguage()
   const currentYear = new Date().getFullYear()
 
   const footerLinks = [
-    { name: 'GitHub', href: 'https://github.com/achhibi' },
+    { name: t('nav.github'), href: 'https://github.com/achhibi' },
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/chhibiamor/' },
     { name: 'Email', href: 'mailto:amor.chhibi@hotmail.fr' },
     { name: 'CV', href: '/CV.pdf' },
@@ -29,22 +31,22 @@ export default function Footer() {
             <div className="space-y-4">
               <h3 className="text-lg font-bold text-accent">Amor Chhibi</h3>
               <p className="text-gray-400 leading-relaxed">
-                Senior Java Developer & Technical Leader specializing in cloud-native architectures and enterprise solutions.
+                {t('footer.about')}
               </p>
             </div>
 
             {/* Quick Links */}
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-accent">Navigation</h3>
+              <h3 className="text-lg font-bold text-accent">{t('footer.navigation')}</h3>
               <ul className="space-y-2">
                 {[
-                  { name: 'À propos', href: '#about' },
-                  { name: 'Compétences', href: '#skills' },
-                  { name: 'Expérience', href: '#experience' },
-                  { name: 'Projets', href: '#projects' },
-                  { name: 'Open Source', href: '#opensource' },
-                  { name: 'Privacy & Security', href: '/privacy' },
-                ].map((link) => (
+                  { name: t('nav.about'), href: '#about' },
+                  { name: t('nav.skills'), href: '#skills' },
+                  { name: t('nav.experience'), href: '#experience' },
+                  { name: t('nav.projects'), href: '#projects' },
+                  { name: t('nav.opensource'), href: '#opensource' },
+                  { name: t('footer.privacy'), href: '/privacy' },
+                ].map((link: any) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
@@ -68,7 +70,7 @@ export default function Footer() {
 
             {/* Social Links */}
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-accent">Connexions</h3>
+              <h3 className="text-lg font-bold text-accent">{t('footer.connections')}</h3>
               <div className="flex gap-4">
                 {[
                   {
@@ -114,10 +116,10 @@ export default function Footer() {
           {/* Bottom Footer */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-gray-400 text-sm">
-              © {currentYear} Amor Chhibi. All rights reserved.
+              © {currentYear} Amor Chhibi. {t('footer.copyright')}
             </p>
             <p className="text-gray-400 text-sm">
-              Conçu avec <span className="text-accent">♥</span> et développé avec Next.js & React
+              {t('footer.madeWith')} <span className="text-accent">♥</span> {t('footer.developedWith')}
             </p>
           </div>
         </motion.div>
