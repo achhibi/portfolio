@@ -102,22 +102,16 @@ export default function Navbar() {
             {langLoaded && (
               <button
                 onClick={toggleLanguage}
-                className="relative inline-flex items-center h-10 w-20 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 dark:from-cyan-600 dark:to-blue-700 hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300 border border-cyan-300 dark:border-cyan-700 group"
+                className="relative inline-flex items-center h-12 w-24 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500 dark:from-blue-600 dark:to-indigo-700 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 border-2 border-blue-300 dark:border-blue-500 group"
                 title={`Switch to ${language === 'fr' ? 'English' : 'Français'}`}
               >
-                {/* Animated background circle */}
+                {/* Animated flag circle */}
                 <div
-                  className={`absolute top-1 left-1 w-8 h-8 rounded-full bg-white dark:bg-slate-800 shadow-md transition-all duration-300 flex items-center justify-center text-lg ${
-                    language === 'fr' ? 'translate-x-0' : 'translate-x-10'
+                  className={`absolute top-1.5 left-1.5 w-9 h-9 rounded-full bg-white dark:bg-slate-900 shadow-md transition-all duration-300 flex items-center justify-center text-2xl ${
+                    language === 'fr' ? 'translate-x-0' : 'translate-x-12'
                   }`}
                 >
                   {language === 'fr' ? '🇫🇷' : '🇬🇧'}
-                </div>
-
-                {/* Background flags */}
-                <div className="absolute inset-0 flex items-center justify-between px-2 pointer-events-none text-lg">
-                  <span className="opacity-50">🇫🇷</span>
-                  <span className="opacity-50">🇬🇧</span>
                 </div>
               </button>
             )}
@@ -126,22 +120,16 @@ export default function Navbar() {
             {themeLoaded && (
               <button
                 onClick={toggleTheme}
-                className="relative inline-flex items-center h-10 w-20 rounded-full bg-gradient-to-r from-yellow-300 to-orange-400 dark:from-slate-600 dark:to-slate-700 hover:shadow-lg hover:shadow-yellow-300/50 dark:hover:shadow-slate-500/50 transition-all duration-300 border border-yellow-400 dark:border-slate-600 group"
+                className="relative inline-flex items-center h-12 w-24 rounded-full bg-gradient-to-r from-amber-300 to-orange-400 dark:from-slate-700 dark:to-slate-800 hover:shadow-lg hover:shadow-amber-400/50 dark:hover:shadow-slate-600/50 transition-all duration-300 border-2 border-amber-300 dark:border-slate-600 group"
                 title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
               >
-                {/* Animated background circle */}
+                {/* Animated icon circle */}
                 <div
-                  className={`absolute top-1 left-1 w-8 h-8 rounded-full bg-white dark:bg-slate-800 shadow-md transition-all duration-300 flex items-center justify-center text-lg ${
-                    theme === 'light' ? 'translate-x-0' : 'translate-x-10'
+                  className={`absolute top-1.5 left-1.5 w-9 h-9 rounded-full bg-white dark:bg-slate-900 shadow-md transition-all duration-300 flex items-center justify-center text-2xl ${
+                    theme === 'light' ? 'translate-x-0' : 'translate-x-12'
                   }`}
                 >
                   {theme === 'dark' ? '🌙' : '☀️'}
-                </div>
-
-                {/* Background icons */}
-                <div className="absolute inset-0 flex items-center justify-between px-2 pointer-events-none text-lg">
-                  <span className="opacity-50">☀️</span>
-                  <span className="opacity-50">🌙</span>
                 </div>
               </button>
             )}
