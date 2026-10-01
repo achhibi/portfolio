@@ -135,14 +135,12 @@ body {
 }
 
 /* Light mode: button styles */
-:is(html:not(.dark)) .bg-slate-800,
-:is(html:not(.dark)) .bg-slate-800/50 {
+:is(html:not(.dark)) .bg-slate-800 {
   background-color: rgba(15, 23, 42, 0.1);
   color: #1e293b;
 }
 
-:is(html:not(.dark)) .bg-slate-800:hover,
-:is(html:not(.dark)) .bg-slate-800/50:hover {
+:is(html:not(.dark)) .bg-slate-800:hover {
   background-color: rgba(15, 23, 42, 0.15);
 }
 
