@@ -250,7 +250,7 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
               {/* Terminal Output */}
               <div
                 ref={outputRef}
-                className="flex-1 overflow-y-auto p-4 font-mono text-sm bg-slate-950 space-y-1"
+                className="flex-1 overflow-y-auto p-4 font-mono text-sm bg-slate-950 space-y-1 flex flex-col justify-end"
               >
                 {output.map((line, i) => (
                   <div
