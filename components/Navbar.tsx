@@ -96,30 +96,28 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Theme Toggle, Language Selector & GitHub Button */}
-          <div className="hidden md:flex gap-4 items-center">
-            {/* Language Selector */}
+          {/* Theme Toggle, Language Selector & GitHub Button - Visible on all screens */}
+          <div className="flex gap-2 sm:gap-3 items-center">
+            {/* Language Selector - With Flags */}
             {langLoaded && (
               <button
                 onClick={toggleLanguage}
-                className="relative inline-flex items-center h-10 w-20 rounded-full bg-gradient-to-r from-blue-300 to-indigo-400 dark:from-blue-700 dark:to-indigo-800 hover:shadow-lg hover:shadow-accent/30 transition-all duration-300 border border-blue-400 dark:border-blue-600 group"
+                className="relative inline-flex items-center h-10 w-20 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 dark:from-cyan-600 dark:to-blue-700 hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300 border border-cyan-300 dark:border-cyan-700 group"
                 title={`Switch to ${language === 'fr' ? 'English' : 'Français'}`}
               >
                 {/* Animated background circle */}
                 <div
-                  className={`absolute top-1 left-1 w-8 h-8 rounded-full bg-white dark:bg-gradient-to-br dark:from-blue-600 dark:to-indigo-700 shadow-md transition-all duration-300 flex items-center justify-center text-sm font-bold ${
+                  className={`absolute top-1 left-1 w-8 h-8 rounded-full bg-white dark:bg-slate-800 shadow-md transition-all duration-300 flex items-center justify-center text-lg ${
                     language === 'fr' ? 'translate-x-0' : 'translate-x-10'
                   }`}
                 >
-                  <span className={language === 'fr' ? 'text-blue-600' : 'text-indigo-600'}>
-                    {language === 'fr' ? 'FR' : 'EN'}
-                  </span>
+                  {language === 'fr' ? '🇫🇷' : '🇬🇧'}
                 </div>
 
-                {/* Background language codes */}
-                <div className="absolute inset-0 flex items-center justify-between px-3 pointer-events-none text-xs font-semibold">
-                  <span className="text-blue-600 opacity-70">FR</span>
-                  <span className="text-indigo-300 opacity-70">EN</span>
+                {/* Background flags */}
+                <div className="absolute inset-0 flex items-center justify-between px-2 pointer-events-none text-lg">
+                  <span className="opacity-50">🇫🇷</span>
+                  <span className="opacity-50">🇬🇧</span>
                 </div>
               </button>
             )}
@@ -128,34 +126,22 @@ export default function Navbar() {
             {themeLoaded && (
               <button
                 onClick={toggleTheme}
-                className="relative inline-flex items-center h-10 w-20 rounded-full bg-gradient-to-r from-slate-300 to-slate-400 dark:from-slate-700 dark:to-slate-800 hover:shadow-lg hover:shadow-accent/30 transition-all duration-300 border border-slate-400 dark:border-slate-600 group"
+                className="relative inline-flex items-center h-10 w-20 rounded-full bg-gradient-to-r from-yellow-300 to-orange-400 dark:from-slate-600 dark:to-slate-700 hover:shadow-lg hover:shadow-yellow-300/50 dark:hover:shadow-slate-500/50 transition-all duration-300 border border-yellow-400 dark:border-slate-600 group"
                 title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
               >
                 {/* Animated background circle */}
                 <div
-                  className={`absolute top-1 left-1 w-8 h-8 rounded-full bg-white dark:bg-gradient-to-br dark:from-slate-600 dark:to-slate-700 shadow-md transition-all duration-300 flex items-center justify-center ${
+                  className={`absolute top-1 left-1 w-8 h-8 rounded-full bg-white dark:bg-slate-800 shadow-md transition-all duration-300 flex items-center justify-center text-lg ${
                     theme === 'light' ? 'translate-x-0' : 'translate-x-10'
                   }`}
                 >
-                  {theme === 'dark' ? (
-                    <svg className="w-5 h-5 text-amber-400 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                    </svg>
-                  ) : (
-                    <svg className="w-5 h-5 text-yellow-400 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                  )}
+                  {theme === 'dark' ? '🌙' : '☀️'}
                 </div>
 
                 {/* Background icons */}
-                <div className="absolute inset-0 flex items-center justify-between px-2 pointer-events-none">
-                  <svg className="w-4 h-4 text-yellow-500 opacity-70" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                  <svg className="w-4 h-4 text-blue-400 opacity-70" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                  </svg>
+                <div className="absolute inset-0 flex items-center justify-between px-2 pointer-events-none text-lg">
+                  <span className="opacity-50">☀️</span>
+                  <span className="opacity-50">🌙</span>
                 </div>
               </button>
             )}
@@ -165,9 +151,9 @@ export default function Navbar() {
               href="https://github.com/achhibi"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2 rounded-lg bg-cyan-400 text-slate-900 font-semibold hover:bg-cyan-300 transition-colors duration-300"
+              className="hidden sm:flex h-10 px-4 sm:px-6 rounded-full bg-gradient-to-r from-slate-700 to-slate-800 dark:from-slate-600 dark:to-slate-700 text-white font-semibold hover:shadow-lg hover:shadow-slate-700/50 transition-all duration-300 border border-slate-600 dark:border-slate-500 items-center justify-center text-sm"
             >
-              {t('nav.github')}
+              🐙
             </a>
           </div>
 
