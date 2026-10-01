@@ -159,15 +159,15 @@ export default function Navbar() {
               href="https://github.com/achhibi"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex w-10 h-10 rounded-lg bg-slate-700/50 dark:bg-slate-800/50 text-white hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center hover:shadow-lg hover:shadow-slate-700/50"
+              className="hidden sm:flex w-11 h-11 rounded-lg bg-slate-700/50 dark:bg-slate-800/50 text-white hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center hover:shadow-lg hover:shadow-slate-700/50 p-2"
               title="GitHub"
             >
               <Image
                 src="/logos/github-logo.svg"
                 alt="GitHub"
-                width={20}
-                height={20}
-                className="w-5 h-5"
+                width={24}
+                height={24}
+                className="w-6 h-6"
               />
             </a>
           </div>
