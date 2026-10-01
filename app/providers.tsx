@@ -22,10 +22,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
     const stored = localStorage.getItem('language') as Language | null
     const initialLanguage = stored || 'fr'
     setLanguage(initialLanguage)
+    setMounted(true)
   }, [])
 
   const toggleLanguage = () => {
@@ -43,10 +43,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
 
     return value || key
-  }
-
-  if (!mounted) {
-    return <>{children}</>
   }
 
   return (
