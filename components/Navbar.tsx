@@ -63,9 +63,15 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="text-2xl font-bold">
-            <span className="text-cyan-300">AC</span>
+          {/* Logo - Profile Photo */}
+          <Link href="/" className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-cyan-300/50 hover:border-cyan-300 transition-all duration-300">
+            <Image
+              src="/profile.jpg"
+              alt="Amor Chhibi"
+              fill
+              className="object-cover"
+              priority
+            />
           </Link>
 
           {/* Desktop Menu */}
