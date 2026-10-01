@@ -221,14 +221,14 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center"
+            className="fixed top-0 left-0 right-0 bottom-0 bg-black/80 z-[9999] flex items-center justify-center"
             onClick={() => setIsOpen(false)}
           >
             <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-slate-900 border border-green-500/50 rounded-lg w-[95vw] h-[90vh] flex flex-col shadow-2xl"
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-slate-900 border border-green-500/50 rounded-lg w-[95vw] h-[90vh] max-w-[1400px] max-h-[900px] flex flex-col shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Terminal Header */}
