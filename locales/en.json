@@ -11,34 +11,34 @@
   },
   "hero": {
     "greeting": "Welcome",
-    "title": "Amor Chhibi",
+    "title": "Amor CHHIBI",
     "subtitle": "Senior Software Engineer",
     "passions": [
       { "label": "Java & Spring Boot", "icon": "☕" },
-      { "label": "AI & LLMs", "icon": "🤖" },
+      { "label": "Intégration IA", "icon": "🤖" },
       { "label": "Cloud Architecture", "icon": "☁️" },
       { "label": "Microservices", "icon": "🏗️" },
       { "label": "Software Excellence", "icon": "⚡" }
     ],
     "description": "With 13+ years of experience in Java/Spring Boot, Cloud and Microservices development.",
-    "description2": "Passionate about AI and LLMs, technological innovation and code excellence.",
+    "description2": "A software craftsman dedicated to code excellence, with a constant eye on the future, AI, and LLMs.",
     "skills": [
-      { "label": "Java", "type": "emoji", "icon": "☕" },
-      { "label": "Spring Boot", "type": "logo" },
-      { "label": "Cloud", "type": "emoji", "icon": "☁️" },
-      { "label": "AI/LLMs", "type": "emoji", "icon": "🤖" },
-      { "label": "Microservices", "type": "emoji", "icon": "🏗️" },
-      { "label": "Keycloak", "type": "logo" },
-      { "label": "Problem Solving", "type": "emoji", "icon": "🎯" },
-      { "label": "Team Collaboration", "type": "emoji", "icon": "🤝" },
-      { "label": "Open Source Lover", "type": "emoji", "icon": "🔓" }
+      { "label": "Java", "type": "logo", "logo": "/logos/java.png" },
+      { "label": "Spring Boot", "type": "logo", "logo": "/logos/spring.svg" },
+      { "label": "Cloud", "type": "logo", "logo": "/logos/cloud.png" },
+      { "label": "AI & LLM", "type": "logo", "logo": "/logos/ai.png" },
+      { "label": "Microservices", "type": "logo", "logo": "/logos/microservices.png" },
+      { "label": "Keycloak", "type": "logo", "logo": "/logos/keycloak.svg" },
+      { "label": "Problem Solving", "type": "logo", "logo": "/logos/problem-solving.png" },
+      { "label": "Team Collaboration", "type": "logo", "logo": "/logos/collaboration.png" },
+      { "label": "Open Source Lover", "type": "logo", "logo": "/logos/opensource.png" }
     ],
     "learnMore": "Learn More",
     "contact": "Contact Me"
   },
   "about": {
     "title": "About",
-    "bio1": "Senior Java/Spring Boot Developer with 13+ years of experience designing and developing complex and scalable architectures.",
+    "bio1": "Senior Java & Spring Boot Developer with 13+ years of experience designing and developing complex and scalable architectures.",
     "bio2": "Passionate about microservices architectures, cloud computing, AI and LLMs. Strong advocate for clean code, SOLID principles and software development best practices.",
     "bio3": "Currently Senior Developer at Groupe AGRICA, working on identity and access management (IAM) topics with expertise in Keycloak, as well as modernization and evolution of enterprise applications.",
     "bio4": "Outside of IT, chess is an appreciated hobby, particularly for its strategic dimension and logical thinking.",

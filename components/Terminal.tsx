@@ -124,7 +124,7 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🐙 GitHub:      github.com/achhibi
 💼 LinkedIn:    linkedin.com/in/chhibiamor
-📧 Email:       amor.chhibi@hotmail.fr
+📧 Message:     use the contact form below
 🌐 Portfolio:   portfolio-achhibi.vercel.app
 📍 Available for: Freelance, Consulting, Full-time
 `
@@ -153,6 +153,74 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
         return ''
       }
     },
+    age: {
+      name: 'age',
+      description: 'Show my current age',
+      execute: () => {
+        const BIRTH_YEAR = 1988
+        const BIRTH_MONTH = 7
+        const BIRTH_DAY = 25
+
+        // Day counts are done in UTC so daylight-saving shifts cannot skew them.
+        const now = new Date()
+        const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())
+        const birth = Date.UTC(BIRTH_YEAR, BIRTH_MONTH - 1, BIRTH_DAY)
+        const DAY_MS = 86400000
+
+        const hadBirthdayThisYear =
+          now.getMonth() + 1 > BIRTH_MONTH ||
+          (now.getMonth() + 1 === BIRTH_MONTH && now.getDate() >= BIRTH_DAY)
+        const years = now.getFullYear() - BIRTH_YEAR - (hadBirthdayThisYear ? 0 : 1)
+
+        const daysAlive = Math.round((today - birth) / DAY_MS)
+        const nextBirthday = Date.UTC(
+          now.getFullYear() + (hadBirthdayThisYear ? 1 : 0),
+          BIRTH_MONTH - 1,
+          BIRTH_DAY
+        )
+        const daysToGo = Math.round((nextBirthday - today) / DAY_MS)
+        const isBirthday = now.getMonth() + 1 === BIRTH_MONTH && now.getDate() === BIRTH_DAY
+
+        return `
+🎂 AGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎈 Age:           ${years} years old
+📆 Days alive:    ${daysAlive.toLocaleString('en-US')}
+⏳ Next birthday: ${isBirthday ? 'today — happy birthday! 🎉' : `in ${daysToGo} days`}
+`
+      }
+    },
+    sudo: {
+      name: 'sudo',
+      description: 'Request elevated privileges',
+      execute: () => `
+⚠️  Requesting elevated privileges...
+
+[████████████████████] 100%
+
+ACCESS DENIED.
+
+Reason:
+You are already inside the system. 😎
+`
+    },
+    terminal: {
+      name: 'terminal',
+      description: 'Run the console boot sequence',
+      execute: () => `
+Initializing developer console...
+
+✓ Terminal interface ........ OK
+✓ Portfolio system .......... OK
+✓ Project database .......... OK
+✓ Contact system ............ OK
+
+System status: ONLINE 🟢
+
+Built to showcase the work, skills
+and journey of Amor Chhibi.
+`
+    },
     jokes: {
       name: 'jokes',
       description: 'Get a random programmer joke',
@@ -165,7 +233,9 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
 
   const executeCommand = (cmd: string) => {
     const trimmed = cmd.trim().toLowerCase()
-    const command = commands[trimmed]
+    // `sudo` is also matched with arguments, the way it is actually typed.
+    const command =
+      commands[trimmed] || (trimmed.startsWith('sudo ') ? commands.sudo : undefined)
 
     const newOutput = [...output]
     newOutput.push({ type: 'input', text: `$ ${cmd}` })
@@ -240,7 +310,7 @@ AI/ML:       LLMs, Prompt Engineering, Claude AI
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-slate-900 border border-green-500/50 rounded-lg w-[95vw] sm:w-[90vw] md:w-[85vw] h-[85vh] sm:h-[85vh] md:h-[90vh] max-w-[1400px] max-h-[90vh] flex flex-col shadow-2xl"
+              className="terminal-console bg-slate-900 border border-green-500/50 rounded-lg w-[95vw] sm:w-[90vw] md:w-[85vw] h-[85vh] sm:h-[85vh] md:h-[90vh] max-w-[1400px] max-h-[90vh] flex flex-col shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Terminal Header */}

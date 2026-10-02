@@ -140,7 +140,7 @@ export default function Hero() {
                 ) : (
                   <div className="h-8 sm:h-10 flex items-center justify-center">
                     <Image
-                      src={skill.label === 'Spring Boot' ? '/logos/spring.svg' : '/logos/keycloak.svg'}
+                      src={skill.logo}
                       alt={skill.label}
                       width={32}
                       height={32}

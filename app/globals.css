@@ -23,166 +23,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Light mode styles */
-:is(html:not(.dark)) {
-  color-scheme: light;
-}
-
-:is(html:not(.dark)) body {
-  background-color: #f8fafc;
-  color: #1e293b;
-}
-
-:is(html:not(.dark)) .gradient-bg {
-  background: linear-gradient(-45deg, #f8fafc, #e0f2fe, #f0e7fe, #fce7f3);
-}
-
-:is(html:not(.dark)) .glass {
-  background: rgba(248, 250, 252, 0.8);
-  border-color: rgba(15, 23, 42, 0.15);
-  backdrop-filter: blur(10px);
-}
-
-:is(html:not(.dark)) ::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
-:is(html:not(.dark)) ::-webkit-scrollbar-thumb {
-  background: #06b6d4;
-  border-radius: 5px;
-}
-
-:is(html:not(.dark)) ::-webkit-scrollbar-thumb:hover {
-  background: #0891b2;
-}
-
-/* Light mode: text colors - Much darker for better contrast */
-:is(html:not(.dark)) .text-gray-100 {
-  color: #0f172a;
-}
-
-:is(html:not(.dark)) .text-gray-200,
-:is(html:not(.dark)) .text-gray-300 {
-  color: #1e293b;
-}
-
-:is(html:not(.dark)) .text-gray-400 {
-  color: #334155;
-}
-
-:is(html:not(.dark)) .text-white {
-  color: #0f172a;
-}
-
-/* Light mode: accent colors - More visible */
-:is(html:not(.dark)) .text-cyan-300,
-:is(html:not(.dark)) .text-cyan-400 {
-  color: #0891b2;
-}
-
-:is(html:not(.dark)) .text-accent {
-  color: #0891b2;
-}
-
-:is(html:not(.dark)) .text-accent2 {
-  color: #7c3aed;
-}
-
-/* Light mode: placeholder */
-:is(html:not(.dark)) input::placeholder,
-:is(html:not(.dark)) textarea::placeholder {
-  color: #94a3b8;
-}
-
-/* Light mode: code blocks */
-:is(html:not(.dark)) code {
-  background: rgba(15, 23, 42, 0.1);
-  color: #1e293b;
-}
-
-/* Light mode: input fields */
-:is(html:not(.dark)) input,
-:is(html:not(.dark)) textarea {
-  background: rgba(248, 250, 252, 0.8);
-  border-color: rgba(15, 23, 42, 0.2);
-  color: #1e293b;
-}
-
-:is(html:not(.dark)) input:focus,
-:is(html:not(.dark)) textarea:focus {
-  border-color: #06b6d4;
-  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
-}
-
-/* Light mode: links */
-:is(html:not(.dark)) a {
-  color: #0891b2;
-}
-
-:is(html:not(.dark)) a:hover {
-  color: #7c3aed;
-}
-
-/* Light mode: selection */
-:is(html:not(.dark)) ::selection {
-  background-color: #06b6d4;
-  color: #f8fafc;
-}
-
-/* Light mode: borders */
-:is(html:not(.dark)) .border-border {
-  border-color: rgba(15, 23, 42, 0.15);
-}
-
-/* Light mode: button styles */
-:is(html:not(.dark)) .bg-slate-800 {
-  background-color: rgba(15, 23, 42, 0.1);
-  color: #1e293b;
-}
-
-:is(html:not(.dark)) .bg-slate-800:hover {
-  background-color: rgba(15, 23, 42, 0.15);
-}
-
-/* Light mode: surface backgrounds */
-:is(html:not(.dark)) .bg-surface {
-  background-color: #f1f5f9;
-}
-
-/* Light mode: bg-primary */
-:is(html:not(.dark)) .bg-primary {
-  background-color: #ffffff;
-}
-
-/* Light mode: glass containers in stats */
-:is(html:not(.dark)) .glass p {
-  color: #334155;
-}
-
-:is(html:not(.dark)) .glass {
-  background: rgba(248, 250, 252, 0.95) !important;
-  border-color: rgba(15, 23, 42, 0.2) !important;
-}
-
-/* Light mode: strong/bold text */
-:is(html:not(.dark)) strong {
-  color: #0891b2;
-}
-
-/* Light mode: better button contrast */
-:is(html:not(.dark)) button {
-  color: #0f172a;
-}
-
-/* Light mode: improved link colors */
-:is(html:not(.dark)) a {
-  color: #0891b2 !important;
-}
-
-:is(html:not(.dark)) a:hover {
-  color: #7c3aed !important;
-}
-
 /* Gradient background animation */
 .gradient-bg {
   background: linear-gradient(-45deg, #0f172a, #1e3a8a, #06b6d4, #8b5cf6);
@@ -266,4 +106,198 @@ textarea:focus {
   outline: none;
   border-color: #06b6d4;
   box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+/* ============================================================
+   LIGHT MODE
+   Every rule below is scoped to html:not(.dark), so dark mode is
+   untouched. The block sits last in the file on purpose: the bare
+   element rules (a, strong, button) must land after their dark-mode
+   counterparts to win on equal specificity.
+   ============================================================ */
+
+:is(html:not(.dark)) {
+  color-scheme: light;
+}
+
+:is(html:not(.dark)) body {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+:is(html:not(.dark)) .gradient-bg {
+  background: linear-gradient(-45deg, #f8fafc, #e0f2fe, #f0e7fe, #fce7f3);
+}
+
+/* Cards. A near-white panel on a white page has no visible edge, so the
+   separation has to come from a shadow rather than from the fill. */
+:is(html:not(.dark)) .glass {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+:is(html:not(.dark)) .glass p {
+  color: #334155;
+}
+
+/* Surfaces */
+:is(html:not(.dark)) .bg-surface {
+  background-color: #f1f5f9;
+}
+
+:is(html:not(.dark)) .bg-primary {
+  background-color: #ffffff;
+}
+
+:is(html:not(.dark)) .border-border {
+  border-color: rgba(15, 23, 42, 0.15);
+}
+
+/* Body text */
+:is(html:not(.dark)) .text-gray-100,
+:is(html:not(.dark)) .text-white {
+  color: #0f172a;
+}
+
+:is(html:not(.dark)) .text-gray-200,
+:is(html:not(.dark)) .text-gray-300 {
+  color: #1e293b;
+}
+
+:is(html:not(.dark)) .text-gray-400 {
+  color: #334155;
+}
+
+/* Accents. cyan-600 only reaches 3.7:1 on white, below the 4.5:1 that body
+   text needs; cyan-700 reaches 5.4:1 and stays on-brand. */
+:is(html:not(.dark)) .text-accent,
+:is(html:not(.dark)) .text-cyan-300,
+:is(html:not(.dark)) .text-cyan-400 {
+  color: #0e7490;
+}
+
+:is(html:not(.dark)) .text-accent2 {
+  color: #7c3aed;
+}
+
+:is(html:not(.dark)) .border-cyan-300 {
+  border-color: #0e7490;
+}
+
+/* Hover feedback has to out-specify the colour overrides above, otherwise a
+   link would never visibly change on hover. */
+:is(html:not(.dark)) .hover\:text-cyan-100:hover,
+:is(html:not(.dark)) .hover\:text-cyan-200:hover,
+:is(html:not(.dark)) .hover\:text-cyan-300:hover,
+:is(html:not(.dark)) .hover\:text-accent:hover {
+  color: #155e75;
+}
+
+:is(html:not(.dark)) .hover\:text-accent2:hover {
+  color: #6d28d9;
+}
+
+:is(html:not(.dark)) .hover\:text-slate-900:hover,
+:is(html:not(.dark)) .hover\:text-primary:hover {
+  color: #0f172a;
+}
+
+/* Same for the group-hover variants used on card headings. */
+:is(html:not(.dark)) .group:hover .group-hover\:text-accent {
+  color: #155e75;
+}
+
+:is(html:not(.dark)) .group:hover .group-hover\:text-accent2 {
+  color: #6d28d9;
+}
+
+/* Form status messages, which sit on pale translucent fills */
+:is(html:not(.dark)) .text-green-300 {
+  color: #15803d;
+}
+
+:is(html:not(.dark)) .text-red-300 {
+  color: #b91c1c;
+}
+
+/* Forms */
+:is(html:not(.dark)) input,
+:is(html:not(.dark)) textarea {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.2);
+  color: #1e293b;
+}
+
+:is(html:not(.dark)) input::placeholder,
+:is(html:not(.dark)) textarea::placeholder {
+  color: #64748b;
+}
+
+:is(html:not(.dark)) input:focus,
+:is(html:not(.dark)) textarea:focus {
+  border-color: #0891b2;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.18);
+}
+
+/* Code */
+:is(html:not(.dark)) code {
+  background: rgba(15, 23, 42, 0.08);
+  color: #1e293b;
+}
+
+/* Links. :where() keeps this at zero specificity so a Tailwind text colour
+   set on a link-shaped button still wins. An !important here was turning the
+   hero CTA's label cyan on its cyan fill. */
+:where(html:not(.dark)) a {
+  color: #0e7490;
+}
+
+:where(html:not(.dark)) a:hover {
+  color: #6d28d9;
+}
+
+:is(html:not(.dark)) strong {
+  color: #0e7490;
+}
+
+:is(html:not(.dark)) button {
+  color: #0f172a;
+}
+
+/* Selection: near-white on cyan was 2.3:1 */
+:is(html:not(.dark)) ::selection {
+  background-color: #06b6d4;
+  color: #0f172a;
+}
+
+/* Scrollbar */
+:is(html:not(.dark)) ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+:is(html:not(.dark)) ::-webkit-scrollbar-thumb {
+  background: #0891b2;
+  border-radius: 5px;
+}
+
+:is(html:not(.dark)) ::-webkit-scrollbar-thumb:hover {
+  background: #0e7490;
+}
+
+/* The developer console is deliberately dark in both themes, so the overrides
+   above must not leak into it. */
+:is(html:not(.dark)) .terminal-console .text-gray-300 {
+  color: #cbd5e1;
+}
+
+:is(html:not(.dark)) .terminal-console .text-green-300 {
+  color: #86efac;
+}
+
+:is(html:not(.dark)) .terminal-console input {
+  background: transparent;
+  border-color: transparent;
+  color: #4ade80;
 }

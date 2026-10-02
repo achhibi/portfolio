@@ -164,7 +164,7 @@ export default function Navbar() {
               href="https://github.com/achhibi"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex w-8 h-8 rounded-md bg-slate-700/50 dark:bg-slate-800/50 text-white hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center hover:shadow-lg hover:shadow-slate-700/50 p-1.5"
+              className="flex w-8 h-8 rounded-md bg-slate-700/50 dark:bg-slate-800/50 text-white hover:bg-slate-600 dark:hover:bg-slate-700 transition-all duration-300 border border-slate-600 dark:border-slate-700 items-center justify-center hover:shadow-lg hover:shadow-slate-700/50 p-1.5"
               title="GitHub"
             >
               <Image

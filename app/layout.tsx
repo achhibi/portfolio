@@ -14,8 +14,12 @@ export const metadata: Metadata = {
   creator: 'Amor Chhibi',
   metadataBase: new URL('https://portfolio-achhibi.vercel.app'),
   icons: {
-    icon: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+      { url: '/icon-32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
   alternates: {
     canonical: 'https://portfolio-achhibi.vercel.app',
@@ -62,19 +66,22 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr">
+    <html lang="fr" className="dark">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://portfolio-achhibi.vercel.app" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0F172A" />
         <StructuredData />
+        {/* Dark is the default and is already on <html>, so this only has to
+            strip it when the visitor explicitly chose light. Running before
+            paint keeps the theme from flashing. */}
         <script dangerouslySetInnerHTML={{__html: `
           try {
-            const theme = localStorage.getItem('theme') || 'dark';
-            if (theme === 'light') document.documentElement.classList.add('light');
+            if (localStorage.getItem('theme') === 'light') {
+              document.documentElement.classList.remove('dark');
+            }
           } catch (e) {}
         `}} />
       </head>

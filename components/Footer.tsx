@@ -8,13 +8,6 @@ export default function Footer() {
   const { t } = useLanguage()
   const currentYear = new Date().getFullYear()
 
-  const footerLinks = [
-    { name: t('nav.github'), href: 'https://github.com/achhibi' },
-    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/chhibiamor/' },
-    { name: 'Email', href: 'mailto:amor.chhibi@hotmail.fr' },
-    { name: 'CV', href: '/CV.pdf' },
-  ]
-
   return (
     <footer className="border-t border-border bg-primary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

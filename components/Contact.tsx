@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Image from 'next/image'
 import { useLanguage } from '@/app/providers'
 
 export default function Contact() {
@@ -74,19 +75,19 @@ export default function Contact() {
           >
             {[
               {
-                icon: '💼',
+                logo: '/logos/linkedin-icon.svg',
                 title: 'LinkedIn',
                 value: 'Amor Chhibi',
                 link: 'https://www.linkedin.com/in/chhibiamor/',
               },
               {
-                icon: '🐙',
+                logo: '/logos/github-icon.svg',
                 title: 'GitHub',
                 value: '@achhibi',
                 link: 'https://github.com/achhibi',
               },
               {
-                icon: '🏆',
+                logo: '/logos/stackoverflow-icon.svg',
                 title: 'Stack Overflow',
                 value: 'chhibi-amor',
                 link: 'https://stackoverflow.com/users/2867361/chhibi-amor',
@@ -110,7 +111,15 @@ export default function Contact() {
                   whileHover={{ scale: 1.05 }}
                   className="glass p-6 rounded-lg text-center space-y-3 hover:border-accent transition-all duration-300 group cursor-pointer"
                 >
-                  <div className="text-4xl">{contact.icon}</div>
+                  <div className="h-10 flex items-center justify-center">
+                    <Image
+                      src={contact.logo}
+                      alt={contact.title}
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
                   <h3 className="text-lg font-semibold text-accent group-hover:text-accent2 transition-colors">
                     {contact.title}
                   </h3>
