@@ -235,6 +235,13 @@ export const jokes = [
   "Le junior : « Pourquoi ? »",
   "Senior : « Parce que je l'ai déjà fait. »",
   "Le développeur parfait n'existe pas. Mais il est probablement en train de corriger un bug qui prétend ne pas exister.",
+  "Pourquoi les développeurs confondent Halloween et Noël ? Parce que OCT 31 = DEC 25. 🎃🎄",
+  "Le code d’hier était propre, élégant et parfaitement compréhensible. Je ne sais pas qui l’a écrit, mais je le déteste.",
+  "J’ai passé la journée à écrire du code pour automatiser une tâche de 30 secondes. Maintenant, la tâche prend 5 minutes, mais elle est automatique.",
+  "J’ai corrigé un bug sans en créer un autre. Je vais probablement raconter cette histoire à mes petits-enfants.",
+  "« On déploie vendredi, ça devrait aller. » Phrase prononcée juste avant chaque catastrophe.",
+  "J’ai corrigé un bug et maintenant j’en ai trois, la productivité est au rendez-vous. 🐛",
+  "Mon code est tellement optimisé qu’il plante beaucoup plus rapidement. ⚡"
 ]
 
 export function getRandomJoke(): string {
